@@ -2395,3 +2395,64 @@ button { border: 0; }
   .compact-social-card:last-child { grid-column: auto; }
   .bottom-section--compact { grid-template-columns: 1fr; }
 }
+
+/* 2026-08-05: Compact X and Google Maps panels (approximately half height) */
+@media (min-width: 981px) {
+  .x-timeline-panel,
+  .store-feature-panel {
+    min-height: 520px;
+    max-height: 520px;
+    overflow: hidden;
+  }
+  .x-timeline-frame {
+    min-height: 350px;
+    height: 350px;
+    flex: 0 0 350px;
+    margin: 12px 0 10px;
+  }
+  .x-timeline-frame .twitter-timeline { min-height: 350px; }
+  .x-timeline-frame iframe {
+    height: 350px !important;
+    min-height: 350px !important;
+  }
+  .store-feature-map {
+    height: 150px;
+    flex-basis: 150px;
+    margin: 12px 0 8px;
+  }
+  .store-feature-summary p { font-size: 13px; line-height: 1.25; }
+  .map-summary-rating { margin-bottom: 3px; }
+  .google-review-list {
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .google-review-card {
+    padding: 9px;
+    border-radius: 12px;
+  }
+  .google-review-avatar {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+    font-size: 12px;
+  }
+  .google-review-header { gap: 7px; }
+  .google-review-header h3 { font-size: 13px; }
+  .google-review-stars { font-size: 11px; }
+  .google-review-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 6px 0 7px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .google-review-link { font-size: 10px; }
+  .store-feature-link {
+    min-height: 34px;
+    margin-top: 8px;
+    padding: 0 14px;
+    font-size: 12px;
+  }
+}
