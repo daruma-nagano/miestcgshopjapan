@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Nexus Trading visual mock site">
+  <title>Nexus Trading Mock</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="Nexus Trading home">
+        <img src="assets/branding/nexus-logo.png" alt="Nexus Trading">
+      </a>
+      <nav id="main-navigation" class="desktop-nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#price-list">Price List</a>
+        <a href="#how-to-buy">How to Buy</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="icon-button" type="button" aria-label="Shopping bag">▢</button>
+        <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-decoration-layer" aria-hidden="true">
+          <img class="hero-decoration hero-decoration--stars" src="assets/decorations/stars-hearts.png" alt="">
+          <img class="hero-decoration hero-decoration--arrows" src="assets/decorations/arrows.png" alt="">
+        </div>
+
+        <div class="mobile-hero-decor" aria-hidden="true">
+          <span class="mobile-decor mobile-decor--star-one">★</span>
+          <span class="mobile-decor mobile-decor--heart-one">♡</span>
+          <span class="mobile-decor mobile-decor--star-two">✦</span>
+          <span class="mobile-decor mobile-decor--heart-two">♡</span>
+        </div>
+
+        <div class="hero-copy">
+          <h1>
+            <span>Card</span>
+            <span class="accent">Fever</span>
+            <span>Starts</span>
+            <span>Here!</span>
+          </h1>
+          <p class="hero-subtitle">Pokémon &amp; One Piece cards<br>from Japan to the world.</p>
+          <a class="primary-button" href="#price-list">Check Price List <span>→</span></a>
+        </div>
+
+        <div class="hero-visual">
+          <img class="hero-sticker hero-sticker--new" src="assets/stickers/new-arrivals.png" alt="New arrivals daily">
+          <img class="hero-sticker hero-sticker--go" src="assets/stickers/lets-go.png" alt="Let's go">
+          <img class="fire-glow" src="assets/effects/fire-glow.png" alt="">
+          <img class="fire-ring" src="assets/effects/fire-ring.png" alt="">
+
+          <p id="orbit-help" class="sr-only">Drag, or use the left and right arrow keys, to rotate the surrounding cards. Press Home or Escape to reset.</p>
+          <p id="orbit-status" class="sr-only" aria-live="polite"></p>
+
+          <div class="orbit-system" data-orbit-system tabindex="0" role="group" aria-label="Card carousel" aria-describedby="orbit-help orbit-status">
+            <button class="orbit-card orbit-card--main" type="button" aria-label="Featured card. Fixed in the middle.">
+              <span>Featured card</span>
+            </button>
+
+            <button class="orbit-card orbit-card--satellite orbit-card--slot1" type="button" data-angle="228" data-tilt="-12" aria-label="Card 1">
+              <span>Card 1</span>
+            </button>
+            <button class="orbit-card orbit-card--satellite orbit-card--slot2" type="button" data-angle="320" data-tilt="8" aria-label="Card 2">
+              <span>Card 2</span>
+            </button>
+            <button class="orbit-card orbit-card--satellite orbit-card--slot3" type="button" data-angle="35" data-tilt="12" aria-label="Card 3">
+              <span>Card 3</span>
+            </button>
+            <button class="orbit-card orbit-card--satellite orbit-card--slot4" type="button" data-angle="140" data-tilt="-10" aria-label="Card 4">
+              <span>Card 4</span>
+            </button>
+          </div>
+
+          <span class="spin-label">Drag to spin</span>
+        </div>
+
+        <img class="hero-mascot" src="assets/mascot/nexus-mascot.png" alt="Nexus Trading mascot holding a phone">
+
+
+        <div class="mobile-hero-actions">
+          <a class="mobile-hero-button mobile-hero-button--primary" href="#price-list">Check Price List <span>→</span></a>
+          <a class="mobile-hero-button mobile-hero-button--secondary" href="#new-arrivals">New Arrivals <span>→</span></a>
+        </div>
+      </section>
+
+      <section class="connect-section connect-section--balanced" aria-labelledby="connect-heading">
+        <h2 id="connect-heading">Connect with Nexus Trading</h2>
+
+        <div class="feature-pair">
+          <article class="feature-panel social-panel--x x-timeline-panel">
+            <header>
+              <span class="panel-icon">𝕏</span>
+              <div><strong>Latest on X</strong><small>@kaitorinagano</small></div>
+            </header>
+            <div class="x-timeline-frame">
+              <a
+                class="twitter-timeline"
+                data-height="680"
+                data-theme="light"
+                data-chrome="noheader nofooter noborders transparent"
+                href="https://twitter.com/kaitorinagano?ref_src=twsrc%5Etfw"
+              >
+                Posts by @kaitorinagano
+              </a>
+            </div>
+            <a class="feature-link x-profile-link" href="https://x.com/kaitorinagano" target="_blank" rel="noopener noreferrer" aria-label="Open kaitorinagano on X">View more on X →</a>
+          </article>
+
+          <article class="feature-panel store-feature-panel" aria-labelledby="store-feature-heading">
+            <header>
+              <span class="panel-icon">⌖</span>
+              <div><strong id="store-feature-heading">Google Maps</strong><small>Daruma Purchase Nagano Store</small></div>
+            </header>
+
+            <div class="store-feature-map" data-map-frame>
+              <img class="store-map-fallback" src="assets/store/daruma-google-map-reference.png" alt="Map preview for Daruma Purchase Nagano Store">
+              <iframe
+                title="Google Map for Daruma Purchase Nagano Store"
+                src="https://www.google.com/maps?q=Daruma%20Purchase%20Nagano%20Store&amp;output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen></iframe>
+            </div>
+
+            <div class="store-feature-summary">
+              <div class="map-summary-rating" aria-label="Google Maps rating 5.0 out of 5 from 30 reviews">
+                <strong>5.0</strong><span aria-hidden="true">★★★★★</span><small>(30)</small>
+              </div>
+              <p class="map-summary-category">Trading card store</p>
+              <p class="map-summary-hours"><strong>Closed</strong> · Opens 1:00 PM (Mon)</p>
+            </div>
+
+            <div class="google-review-list" aria-label="Selected English Google Maps reviews">
+              <article class="google-review-card">
+                <header class="google-review-header">
+                  <span class="google-review-avatar" aria-hidden="true">F</span>
+                  <div><h3>Felix</h3><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+                </header>
+                <p class="google-review-text">Amazing experience, the place was super lovely and the staff spoke great english so it was easy to communicate! Only place in Japan I have found with boxes of Pokemon cards so am I very happy!</p>
+                <a class="google-review-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
+              </article>
+
+              <article class="google-review-card">
+                <header class="google-review-header">
+                  <span class="google-review-avatar google-review-avatar--evan" aria-hidden="true">E</span>
+                  <div><h3>Evan Adidas</h3><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div></div>
+                </header>
+                <p class="google-review-text">Amazing service, and was very patient with me. As I took 2 days to decide whether or not I would buy anything. Great English and fair prices. Would definitely come back if I found myself back in Matsumoto! All while having a very plentiful stock.</p>
+                <a class="google-review-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
+              </article>
+            </div>
+
+            <a class="feature-link store-feature-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+          </article>
+        </div>
+
+        <div class="compact-link-grid">
+          <article class="compact-social-card compact-social-card--instagram">
+            <header><span class="panel-icon">◎</span><div><strong>Instagram</strong><small>@mie_pcg_japancard</small></div></header>
+            <a href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">Open Instagram →</a>
+          </article>
+
+          <article id="price-list" class="compact-social-card compact-social-card--price">
+            <header><span class="panel-icon">◇</span><div><strong>Price List</strong><small>Latest buying prices</small></div></header>
+            <a href="#">View price list →</a>
+          </article>
+
+          <article class="compact-social-card compact-social-card--whatnot">
+            <header>
+              <img src="assets/whatnot/kitsune-vault-japan-profile.png" alt="Whatnot profile for kitsune_vault_japan">
+              <div><strong>Live Stream</strong><small>kitsune_vault_japan</small></div>
+            </header>
+            <a href="https://www.whatnot.com/user/kitsune_vault_japan" target="_blank" rel="noopener noreferrer">Watch on Whatnot →</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="shipping" class="benefit-section">
+        <div class="benefit-title">Why shop<br>with us?</div>
+        <div class="benefit"><span>✓</span><strong>100% Authentic</strong><small>Japan sourced</small></div>
+        <div class="benefit"><span>✈</span><strong>Worldwide</strong><small>Shipping</small></div>
+        <div class="benefit"><span>▣</span><strong>Secure</strong><small>Payment</small></div>
+        <div class="benefit"><span>□</span><strong>Carefully</strong><small>Packed</small></div>
+      </section>
+
+      <section id="contact" class="bottom-section bottom-section--compact">
+        <div class="newsletter-panel">
+          <img src="assets/decorations/pink-brush.png" alt="">
+          <div>
+            <h2>Want more card happiness?</h2>
+            <p>Join our newsletter for new arrivals and exclusive offers.</p>
+            <form class="newsletter-form">
+              <label class="sr-only" for="email">Email address</label>
+              <input id="email" type="email" placeholder="Your email">
+              <button type="submit" aria-label="Subscribe">→</button>
+            </form>
+          </div>
+        </div>
+        <img class="love-note" src="assets/stickers/love-cards-note.png" alt="We love cards, and you">
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <img src="assets/branding/nexus-logo.png" alt="Nexus Trading">
+      <nav aria-label="Footer navigation">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Shipping Policy</a>
+        <a href="#">Returns</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="payment-list" aria-label="Accepted payment methods">
+        <span>VISA</span><span>MC</span><span>PayPal</span><span>Apple Pay</span>
+      </div>
+    </footer>
+  </div>
+
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "site": "Nexus Trading mock",
+  "entry": "index.html",
+  "features": [
+    "responsive layout",
+    "card click spin",
+    "stationary flickering flame",
+    "mobile menu",
+    "static social/price/schedule panels"
+  ]
+}
