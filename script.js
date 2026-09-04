@@ -73,6 +73,7 @@
     let suppressClickUntil = 0;
     let orbitMetrics = { radiusX: 220, radiusY: 220 };
     let isReleasingPointerNormally = false;
+    let pressedRewardTrigger = false;
     const dragThreshold = 6;
     const clickSuppressDurationMs = 300;
 
@@ -185,7 +186,11 @@ const readOrbitMetrics = () => {
       } else {
         velocity = 0;
         updateStatus();
+        if (pressedRewardTrigger) {
+          document.dispatchEvent(new CustomEvent("nexus:reward-open"));
+        }
       }
+      pressedRewardTrigger = false;
     };
 
     const cancelDrag = (event) => {
@@ -213,6 +218,11 @@ const readOrbitMetrics = () => {
       startRotation = orbitRotation;
       velocity = 0;
       hasDragged = false;
+      // setPointerCapture は後続の click を orbit-system に付け替えてしまうため、
+      // 中央カードを押したかどうかをここで控えておき、pointerup 側で拾い直す。
+      pressedRewardTrigger = Boolean(
+        event.target instanceof Element && event.target.closest("[data-reward-trigger]")
+      );
       orbitSystem.setPointerCapture(event.pointerId);
     });
 
@@ -450,5 +460,232 @@ const readOrbitMetrics = () => {
     img.addEventListener("load", () => img.classList.add("is-ready"));
     img.addEventListener("error", tryNext);
     tryNext();
+  });
+})();
+
+/* ================================================================
+   2026-09-04: 中央カードのサービスコード（¥500 OFF）
+
+   ・全員当たり。演出だけパチンコ風で、抽選はしていない
+   ・リールは 1つ目 → 2つ目 と止め、3つ目でリーチを挟んでから当てる
+   ・静的サイトのためコードの真正性は検証できない。DM で提示してもらい、
+     店舗側は tools/code-check.html で発行日を確認する運用が前提
+   ・同じブラウザでは同じコードを返す（引き直し防止）
+   ================================================================ */
+(() => {
+  const trigger = document.querySelector("[data-reward-trigger]");
+  const dialog = document.querySelector("[data-reward]");
+  if (!trigger || !dialog || typeof dialog.showModal !== "function") return;
+
+  const reels = Array.from(dialog.querySelectorAll("[data-reel]"));
+  const statusEl = dialog.querySelector("[data-reward-status]");
+  const burstEl = dialog.querySelector("[data-reward-burst]");
+  const resultEl = dialog.querySelector("[data-reward-result]");
+  const codeEl = dialog.querySelector("[data-reward-code]");
+  const copyBtn = dialog.querySelector("[data-reward-copy]");
+
+  const STORE_KEY = "nexus.reward.v2";
+  const VALID_DAYS = 14;
+  /* 見間違えやすい 0/O/1/I/8/B は使わない */
+  const ALPHABET = "23456789ACDEFGHJKLMNPQRTUVWXYZ";
+
+  /* 発行日（年下1桁 + 月 + 日 = 5桁）を letters に置き換えて、そのままは読めなくする。
+     対応表は "POKEMNCARD"（P=0 O=1 K=2 E=3 M=4 N=5 C=6 A=7 R=8 D=9）。
+     店舗側の判定は code-check.html を使う。
+     ※ 変換ルールはこのファイルに書かれている以上、読まれれば解けます。
+        改ざん抑止であって、真正性の保証ではありません。 */
+  const DATE_KEY = "POKEMNCARD";
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const CONFETTI_COLORS = ["#ec2f70", "#ffd02e", "#7b19fe", "#fc3360", "#ffa207", "#ffffff"];
+  const timers = [];
+  const after = (ms, fn) => timers.push(window.setTimeout(fn, ms));
+  const clearTimers = () => { timers.splice(0).forEach(window.clearTimeout); };
+
+  const pad = (n) => String(n).padStart(2, "0");
+
+  const encodeDate = (d) => {
+    const digits = String(d.getFullYear() % 10) + pad(d.getMonth() + 1) + pad(d.getDate());
+    return Array.from(digits, (n) => DATE_KEY[Number(n)]).join("");
+  };
+
+  const makeCode = () => {
+    const now = new Date();
+    const bytes = new Uint32Array(4);
+    (window.crypto || window.msCrypto).getRandomValues(bytes);
+    const tail = Array.from(bytes, (b) => ALPHABET[b % ALPHABET.length]).join("");
+    return { code: `NX-${encodeDate(now)}-${tail}`, issued: now.toISOString().slice(0, 10) };
+  };
+
+  /* 保存できない環境（プライベートブラウズ等）でも動くようにする */
+  const readStored = () => {
+    try {
+      const raw = window.localStorage.getItem(STORE_KEY);
+      if (!raw) return null;
+      const saved = JSON.parse(raw);
+      if (!saved || typeof saved.code !== "string" || !/^NX-[A-Z]{5}-[A-Z0-9]{4}$/.test(saved.code)) return null;
+      const age = (Date.now() - Date.parse(saved.issued)) / 86400000;
+      if (!isFinite(age) || age > VALID_DAYS) return null;
+      return saved;
+    } catch (err) {
+      return null;
+    }
+  };
+
+  const writeStored = (value) => {
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(value)); }
+    catch (err) { /* 保存できなくても発行自体は成立する */ }
+  };
+
+  const SHAPES = ["", "is-round", "is-ribbon", "is-star"];
+  const dropConfetti = (count) => {
+    if (!burstEl || reduceMotion.matches) return;
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i += 1) {
+      const bit = document.createElement("span");
+      const shape = SHAPES[Math.floor(Math.random() * SHAPES.length)];
+      bit.className = `confetto ${shape}`.trim();
+      const color = CONFETTI_COLORS[i % CONFETTI_COLORS.length];
+      bit.style.left = `${Math.random() * 100}%`;
+      bit.style.animationDuration = `${1.5 + Math.random() * 1.6}s`;
+      bit.style.animationDelay = `${Math.random() * .7}s`;
+      if (shape === "is-star") {
+        bit.textContent = Math.random() < .5 ? "★" : "✦";
+        bit.style.color = color;
+      } else {
+        bit.style.background = color;
+        bit.style.width = `${6 + Math.random() * 8}px`;
+      }
+      frag.appendChild(bit);
+    }
+    burstEl.appendChild(frag);
+    after(4200, () => { burstEl.textContent = ""; });
+  };
+
+  const setStatus = (text) => { if (statusEl) statusEl.textContent = text; };
+
+  const finish = (code) => {
+    dialog.classList.remove("is-hit", "is-reach");
+    dialog.classList.add("is-done");
+    codeEl.textContent = code;
+    resultEl.hidden = false;
+    const focusTarget = dialog.querySelector(".reward-cta");
+    if (focusTarget) focusTarget.focus({ preventScroll: true });
+  };
+
+  /* リール停止 → リーチ → 当たり → 結果 */
+  const runSequence = (code) => {
+    reels.forEach((reel) => reel.classList.add("is-spinning"));
+    setStatus("Here we go…");
+
+    after(800, () => {
+      reels[0].classList.replace("is-spinning", "is-stopped");
+    });
+
+    after(1350, () => {
+      reels[1].classList.replace("is-spinning", "is-stopped");
+      /* 2つ揃ったところでリーチ。3つ目だけ遅く回し、マスコットが出てくる */
+      reels[2].classList.remove("is-spinning");
+      reels[2].classList.add("is-reach");
+      dialog.classList.add("is-reach");
+      setStatus("So close!!");
+    });
+
+    after(3300, () => {
+      reels[2].classList.remove("is-reach");
+      reels[2].classList.add("is-stopped");
+      dialog.classList.remove("is-reach");
+      dialog.classList.add("is-hit", "is-shake");
+      dropConfetti(46);
+      after(500, () => dialog.classList.remove("is-shake"));
+      /* 少し遅らせて二段目を降らせる */
+      after(600, () => dropConfetti(26));
+    });
+
+    after(4500, () => finish(code));
+  };
+
+  const openReward = () => {
+    let saved = readStored();
+    if (!saved) {
+      saved = makeCode();
+      writeStored(saved);
+    }
+
+    clearTimers();
+    dialog.classList.remove("is-reach", "is-hit", "is-done", "is-shake");
+    reels.forEach((reel) => reel.classList.remove("is-spinning", "is-reach", "is-stopped"));
+    setStatus("Here we go…");
+    resultEl.hidden = true;
+    if (burstEl) burstEl.textContent = "";
+    if (copyBtn) {
+      copyBtn.textContent = "Copy";
+      copyBtn.classList.remove("is-copied");
+    }
+
+    dialog.showModal();
+
+    if (reduceMotion.matches) {
+      reels.forEach((reel) => reel.classList.add("is-stopped"));
+      finish(saved.code);
+      return;
+    }
+    runSequence(saved.code);
+  };
+
+  /* キーボード操作（Enter / Space）はボタンの click がそのまま届く */
+  trigger.addEventListener("click", (event) => {
+    if (event.detail !== 0) return;   // ポインタ由来の click は下の合図で処理する
+    event.preventDefault();
+    openReward();
+  });
+
+  /* ポインタ操作は orbit 側がポインタを捕捉するため、合図を受けて開く */
+  document.addEventListener("nexus:reward-open", () => {
+    if (!dialog.open) openReward();
+  });
+
+  /* 演出を最後まで見なくても、もう一度押せば結果まで飛ばせる */
+  dialog.addEventListener("click", (event) => {
+    if (dialog.classList.contains("is-done")) return;
+    if (event.target.closest(".reward-close")) return;
+    const saved = readStored();
+    if (!saved) return;
+    clearTimers();
+    reels.forEach((reel) => {
+      reel.classList.remove("is-spinning", "is-reach");
+      reel.classList.add("is-stopped");
+    });
+    dialog.classList.remove("is-reach", "is-hit", "is-shake");
+    finish(saved.code);
+  });
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async (event) => {
+      event.stopPropagation();
+      const text = codeEl.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (err) {
+        const range = document.createRange();
+        range.selectNodeContents(codeEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        return;
+      }
+      copyBtn.textContent = "Copied";
+      copyBtn.classList.add("is-copied");
+      after(1800, () => {
+        copyBtn.textContent = "Copy";
+        copyBtn.classList.remove("is-copied");
+      });
+    });
+  }
+
+  dialog.addEventListener("close", () => {
+    clearTimers();
+    dialog.classList.remove("is-spinning", "is-reach", "is-hit", "is-done", "is-shake");
+    if (burstEl) burstEl.textContent = "";
   });
 })();

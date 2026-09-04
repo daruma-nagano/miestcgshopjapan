@@ -121,8 +121,9 @@
           <p id="orbit-status" class="sr-only" aria-live="polite"></p>
 
           <div class="orbit-system" data-orbit-system tabindex="0" role="group" aria-label="Card carousel" aria-describedby="orbit-help orbit-status">
-            <button class="orbit-card orbit-card--main" type="button" aria-label="Featured card. Fixed in the middle.">
+            <button class="orbit-card orbit-card--main" type="button" data-reward-trigger aria-label="Featured card. Tap to reveal a discount code.">
               <span>Featured card</span>
+              <span class="orbit-lure" aria-hidden="true"><i>✦</i><b>TAP ME</b>FOR ¥500 OFF</span>
             </button>
 
             <button class="orbit-card orbit-card--satellite orbit-card--slot1" type="button" data-angle="228" data-tilt="-12" aria-label="Card 1">
@@ -427,6 +428,48 @@
       </section>
 
     </main>
+
+
+    <dialog class="reward" data-reward aria-labelledby="reward-heading">
+      <form method="dialog" class="reward-dismiss"><button class="reward-close" aria-label="Close">×</button></form>
+
+      <div class="reward-body">
+        <div class="reward-rays" aria-hidden="true"></div>
+        <div class="reward-flash" aria-hidden="true"></div>
+        <div class="reward-burst" data-reward-burst aria-hidden="true"></div>
+
+        <img class="reward-mascot" src="assets/mascot/nexus-mascot.webp" alt="" width="760" height="1140" aria-hidden="true" decoding="async">
+
+        <div class="reward-reels" data-reward-reels aria-hidden="true">
+          <span class="reel" data-reel><span class="reel-strip"><b class="s-bolt">⚡</b><b class="s-star">★</b><b class="s-heart">♥</b><b class="s-flower">✿</b><b class="s-spark">✦</b><b class="s-star">★</b><b class="s-heart">♥</b><b class="s-flower">✿</b><b class="s-bolt">⚡</b></span></span>
+          <span class="reel" data-reel><span class="reel-strip"><b class="s-bolt">⚡</b><b class="s-heart">♥</b><b class="s-flower">✿</b><b class="s-star">★</b><b class="s-spark">✦</b><b class="s-heart">♥</b><b class="s-flower">✿</b><b class="s-star">★</b><b class="s-bolt">⚡</b></span></span>
+          <span class="reel" data-reel><span class="reel-strip"><b class="s-bolt">⚡</b><b class="s-flower">✿</b><b class="s-star">★</b><b class="s-heart">♥</b><b class="s-spark">✦</b><b class="s-flower">✿</b><b class="s-star">★</b><b class="s-heart">♥</b><b class="s-bolt">⚡</b></span></span>
+        </div>
+
+        <p class="reward-status" data-reward-status aria-hidden="true">Here we go…</p>
+        <p class="reward-stamp" data-reward-stamp aria-hidden="true">JACKPOT!</p>
+
+        <div class="reward-result" data-reward-result hidden>
+          <p class="reward-kicker">✦ YATTA! ✦</p>
+          <h2 id="reward-heading" class="reward-amount">¥500 <span>OFF</span></h2>
+          <p class="reward-lede">Your code is ready. Send it with your DM and we will take ¥500 off the total.</p>
+
+          <div class="reward-code">
+            <code data-reward-code>NX-XXXXX-XXXX</code>
+            <button class="reward-copy" type="button" data-reward-copy>Copy</button>
+          </div>
+
+          <a class="primary-button primary-button--inline primary-button--instagram reward-cta" href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">Send it in a DM <span aria-hidden="true">→</span></a>
+
+          <ul class="reward-terms">
+            <li>Valid for 14 days from the day it was issued.</li>
+            <li>One code per order, on orders of ¥3,000 or more.</li>
+            <li>Cannot be combined with other offers.</li>
+            <li>Paste the code into your message so we can apply it.</li>
+          </ul>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <img src="assets/branding/nexus-logo.webp" alt="Nexus Trading" width="766" height="296" loading="lazy" decoding="async">
