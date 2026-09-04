@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Price List | Nexus Trading</title>
+  <meta name="description" content="Current prices for Pokémon Card Game and One Piece Card Game sealed cases, boxes and bulk at Daruma Kaitori Nagano, Matsumoto. Prices in Japanese yen.">
+  <link rel="canonical" href="https://daruma-nagano.github.io/miestcgshopjapan/price-list/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Trading">
+  <meta property="og:title" content="Price List | Nexus Trading">
+  <meta property="og:description" content="Current prices for Pokémon and One Piece sealed cases, boxes and bulk. Matsumoto, Japan.">
+  <meta property="og:url" content="https://daruma-nagano.github.io/miestcgshopjapan/price-list/">
+  <meta property="og:image" content="https://daruma-nagano.github.io/miestcgshopjapan/assets/branding/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kaitorinagano">
+
+  <meta name="theme-color" content="#ec2f70">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="price-list.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://daruma-nagano.github.io/miestcgshopjapan/" },
+      { "@type": "ListItem", "position": 2, "name": "Price List", "item": "https://daruma-nagano.github.io/miestcgshopjapan/price-list/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="Nexus Trading home">
+        <img src="../assets/branding/nexus-logo.webp" alt="Nexus Trading" width="766" height="296" fetchpriority="high" decoding="async">
+      </a>
+      <nav id="main-navigation" class="desktop-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../#new-arrivals">New Arrivals</a>
+        <a href="./">Price List</a>
+        <a href="../#how-to-buy">How to Buy</a>
+        <a href="../#faq">FAQ</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
+      </div>
+    </header>
+
+    <main class="pl-page" data-price-list>
+      <a class="pl-back" href="../">← Back to the shop</a>
+
+      <div class="pl-head">
+        <p class="section-kicker">Price List</p>
+        <h1>Cases, boxes and bulk</h1>
+        <p>Prices are in Japanese yen and cover sealed Pokémon Card Game and One Piece Card Game product, plus bulk. Stock and prices move daily — message us to confirm before you order.</p>
+        <p class="pl-updated">Latest update: 4 September 2026</p>
+      </div>
+
+      <div class="pl-controls">
+        <div class="pl-tabs" role="group" aria-label="Filter by category">
+          <button class="pl-tab is-active" type="button" data-pl-category="All">All</button>
+          <button class="pl-tab" type="button" data-pl-category="Pokémon">Pokémon</button>
+          <button class="pl-tab" type="button" data-pl-category="One Piece">One Piece</button>
+          <button class="pl-tab" type="button" data-pl-category="Bulk">Bulk</button>
+        </div>
+
+        <div class="pl-filters">
+          <div class="pl-field">
+            <label for="pl-search">Search</label>
+            <input id="pl-search" type="search" data-pl-search placeholder="Set name, code, condition…" autocomplete="off">
+          </div>
+          <div class="pl-field">
+            <label for="pl-type">Product type</label>
+            <select id="pl-type" data-pl-type>
+              <option value="All">All product types</option>
+              <option value="CASE">CASE</option>
+              <option value="BOX">BOX</option>
+              <option value="No Shrink">BOX — no shrink</option>
+              <option value="Bulk">Bulk</option>
+            </select>
+          </div>
+          <div class="pl-field">
+            <label for="pl-sort">Sort by</label>
+            <select id="pl-sort" data-pl-sort>
+              <option value="updated">Latest updated</option>
+              <option value="priceDesc">Highest price</option>
+              <option value="priceAsc">Lowest price</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+          <div class="pl-views" role="group" aria-label="Change layout">
+            <button class="pl-view is-active" type="button" data-pl-view="card">Cards</button>
+            <button class="pl-view" type="button" data-pl-view="table">Compact</button>
+          </div>
+        </div>
+
+        <p class="pl-count" data-pl-count aria-live="polite">Loading…</p>
+      </div>
+
+      <div class="pl-list" data-pl-list></div>
+      <p class="pl-empty" data-pl-empty hidden>No matching items found.</p>
+
+      <section class="pl-note" aria-labelledby="pl-note-heading">
+        <h2 id="pl-note-heading">Before you order</h2>
+        <ul>
+          <li>Prices are in Japanese yen and exclude shipping. Shipping is quoted per order.</li>
+          <li>Items marked <strong>ASK</strong> are priced on request — usually CASE quantities or fast-moving product.</li>
+          <li>Stock figures are a guide only. Sealed product sells over the counter as well, so a listed item can be gone the same day.</li>
+          <li>The final price can change with condition, market movement and remaining quantity.</li>
+        </ul>
+      </section>
+
+      <div class="pl-cta">
+        <a class="primary-button primary-button--inline primary-button--instagram" href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">DM on Instagram <span aria-hidden="true">→</span></a>
+        <a class="ghost-button" href="../#how-to-buy">How to Buy <span aria-hidden="true">→</span></a>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <img src="../assets/branding/nexus-logo.webp" alt="Nexus Trading" width="766" height="296" loading="lazy" decoding="async">
+      <nav aria-label="Footer navigation">
+        <a href="../#how-to-buy">How to Buy</a>
+        <a href="../#shipping">Shipping</a>
+        <a href="../#faq">FAQ</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../#contact">Contact</a>
+      </nav>
+      <p class="footer-note">Nexus Trading Co., Ltd. — Matsumoto, Nagano, Japan</p>
+    </footer>
+  </div>
+
+  <script src="price-list-data.js"></script>
+  <script src="price-list.js"></script>
+  <script src="../script.js"></script>
+</body>
+</html>
