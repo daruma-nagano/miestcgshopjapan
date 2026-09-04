@@ -1,11 +1,18 @@
 {
-  "site": "Nexus Trading mock",
+  "site": "Nexus Trading",
   "entry": "index.html",
+  "shop": "Daruma Kaitori Nagano (Matsumoto, Nagano, Japan)",
+  "operator": "Nexus Trading Co., Ltd.",
+  "sections": ["home", "new-arrivals", "price-list", "how-to-buy", "shipping", "faq", "contact"],
   "features": [
-    "responsive layout",
-    "card click spin",
-    "stationary flickering flame",
+    "responsive layout (680 / 980 / 1440 breakpoints)",
+    "draggable orbiting card carousel with momentum and keyboard control",
+    "animated fire ring",
     "mobile menu",
-    "static social/price/schedule panels"
-  ]
+    "live shop open/closed status (Asia/Tokyo)",
+    "X timeline embed with text fallback",
+    "Google Maps embed with static preview fallback"
+  ],
+  "fonts": ["Luckiest Guy", "Nunito", "Gochi Hand"],
+  "assets": "WebP only"
 }

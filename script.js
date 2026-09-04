@@ -5,7 +5,6 @@
   const header = document.querySelector(".site-header");
   const navigation = document.querySelector(".desktop-nav");
   const orbitSystem = document.querySelector("[data-orbit-system]");
-  const newsletterForm = document.querySelector(".newsletter-form");
   const orbitStatus = document.querySelector("#orbit-status");
   const orbitCards = Array.from(document.querySelectorAll(".orbit-card--satellite"));
   const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -80,14 +79,16 @@
 const readOrbitMetrics = () => {
   const containerWidth = orbitSystem.clientWidth;
 
+  // 上限はヒーローの高さ（固定）に収まる炎の大きさに合わせている。
+  // ここを広げると、広い画面でカードだけが炎の外へ離れていく。
   orbitMetrics = {
     radiusX: Math.min(
       Math.max(containerWidth * 0.34, 180),
-      440
+      330
     ),
     radiusY: Math.min(
       Math.max(containerWidth * 0.29, 165),
-      380
+      290
     )
   };
 };  
@@ -326,24 +327,128 @@ const readOrbitMetrics = () => {
     }
   }
 
-  newsletterForm?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const input = newsletterForm.querySelector("input");
-    const value = input?.value.trim();
-    if (!value) {
-      input?.focus();
-      return;
-    }
-    window.alert("Mock site: newsletter registration is not connected yet.");
-  });
-
 })();
 
 
-const storeMapFrame = document.querySelector('[data-map-frame]');
-if (storeMapFrame) {
-  const iframe = storeMapFrame.querySelector('iframe');
-  if (iframe) {
-    iframe.addEventListener('load', () => storeMapFrame.classList.add('is-loaded'));
-  }
-}
+/* Google Map の iframe 読み込み完了でフォールバック画像を隠す */
+(() => {
+  const storeMapFrame = document.querySelector("[data-map-frame]");
+  const iframe = storeMapFrame?.querySelector("iframe");
+  iframe?.addEventListener("load", () => storeMapFrame.classList.add("is-loaded"));
+})();
+
+/* 実店舗の営業状態（Asia/Tokyo 基準・火水定休） */
+(() => {
+  const targets = document.querySelectorAll("[data-opening-status]");
+  if (!targets.length) return;
+
+  const HOURS_TEXT = "Weekdays 13:00\u201319:00 \u00b7 Sat, Sun & holidays 12:00\u201319:00";
+
+  const nowInJapan = () => {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Asia/Tokyo", weekday: "short", hour: "2-digit", minute: "2-digit", hour12: false
+    }).formatToParts(new Date()).reduce((acc, part) => { acc[part.type] = part.value; return acc; }, {});
+    return { weekday: parts.weekday, minutes: Number(parts.hour) * 60 + Number(parts.minute) };
+  };
+
+  // 日本の祝日は判定できないため、平日開店時刻を保守的な基準として扱う
+  const scheduleFor = (weekday) => {
+    if (weekday === "Tue" || weekday === "Wed") return null;
+    if (weekday === "Sat" || weekday === "Sun") return { open: 12 * 60, close: 19 * 60 };
+    return { open: 13 * 60, close: 19 * 60 };
+  };
+
+  const render = () => {
+    const now = nowInJapan();
+    const schedule = scheduleFor(now.weekday);
+    let state, text;
+
+    if (!schedule) {
+      state = "is-closed";
+      text = "Closed today (Tuesdays and Wednesdays). " + HOURS_TEXT;
+    } else if (now.minutes >= schedule.open && now.minutes < schedule.close) {
+      state = "is-open";
+      text = "Open now, until 19:00 Japan time. " + HOURS_TEXT;
+    } else {
+      state = "is-closed";
+      text = "Closed right now. " + HOURS_TEXT;
+    }
+
+    targets.forEach((el) => {
+      el.classList.remove("is-open", "is-closed");
+      el.classList.add(state);
+      el.textContent = text;
+    });
+  };
+
+  render();
+  setInterval(render, 60000);
+})();
+
+
+/* Instagram 投稿サムネイル
+   assets/data/instagram-posts.js が window.NEXUS_INSTAGRAM_POSTS を定義していれば
+   最大6件表示する。空の場合はフィード枠を出さず、フォロー導線だけを残す。
+   （JSON を fetch すると file:// で開いたときに読めないため、JS ファイルで持つ） */
+(() => {
+  const mount = document.querySelector("[data-instagram-feed]");
+  if (!mount) return;
+
+  const data = window.NEXUS_INSTAGRAM_POSTS;
+  const posts = Array.isArray(data && data.posts) ? data.posts : [];
+  if (!posts.length) return;
+
+  const isSafeImage = (src) => typeof src === "string" && /^[\w./-]+\.(webp|jpg|jpeg|png)$/i.test(src) && !src.startsWith("/");
+  const isSafeLink = (url) => typeof url === "string" && /^https:\/\/(www\.)?instagram\.com\//.test(url);
+
+  const usable = posts.filter((p) => p && isSafeImage(p.image) && isSafeLink(p.url)).slice(0, 6);
+  if (!usable.length) return;
+
+  usable.forEach((post) => {
+    const link = document.createElement("a");
+    link.href = post.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    const img = document.createElement("img");
+    img.src = post.image;
+    img.alt = typeof post.alt === "string" && post.alt ? post.alt : "Instagram post";
+    img.loading = "lazy";
+    img.decoding = "async";
+    img.width = 300;
+    img.height = 300;
+
+    link.appendChild(img);
+    mount.appendChild(link);
+  });
+  mount.hidden = false;
+})();
+
+/* 公式ブランドロゴ（assets/brands/）
+   拡張子を問わず、見つかったファイルを使う。どれも無ければ <img> ごと取り除く。
+   ファイルを置くだけで表示されるので、HTML を触る必要はない。 */
+(() => {
+  const EXTENSIONS = ["svg", "png", "webp", "jpg", "jpeg"];
+
+  document.querySelectorAll("[data-brand-logo]").forEach((img) => {
+    const name = img.dataset.brandLogo;
+    if (!name || !/^[a-z0-9-]+$/.test(name)) { img.remove(); return; }
+
+    const base = img.closest(".price-list-page") ? "../assets/brands/" : "assets/brands/";
+    let index = 0;
+
+    const tryNext = () => {
+      if (index >= EXTENSIONS.length) {
+        // どの拡張子でも見つからない場合は枠ごと隠す（レイアウトは崩さない）
+        const wrap = img.closest(".channel-media-wrap");
+        if (wrap) wrap.remove(); else img.remove();
+        return;
+      }
+      img.src = `${base}${name}.${EXTENSIONS[index++]}`;
+    };
+
+    img.addEventListener("load", () => img.classList.add("is-ready"));
+    img.addEventListener("error", tryNext);
+    tryNext();
+  });
+})();

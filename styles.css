@@ -1,4 +1,7 @@
 :root {
+  --font-display: "Luckiest Guy", "Arial Black", Impact, sans-serif;
+  --font-body: "Nunito", "Helvetica Neue", Arial, sans-serif;
+  --font-hand: "Gochi Hand", "Comic Sans MS", cursive;
   --paper: #fbf1df;
   --ink: #111;
   --pink: #ec2f70;
@@ -14,7 +17,7 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   color: var(--ink);
-  font-family: "Arial Narrow", Arial, sans-serif;
+  font-family: var(--font-body);
   background: #ddd4c8;
 }
 button, input { font: inherit; }
@@ -27,7 +30,7 @@ button { border: 0; }
   margin: 0;
   overflow: hidden;
   background-color: var(--paper);
-  background-image: url("assets/backgrounds/paper-background.jpg");
+  background-image: url("assets/backgrounds/paper-background.webp");
   background-position: center top;
   background-size: 768px 768px;
   background-repeat: repeat;
@@ -51,6 +54,7 @@ button { border: 0; }
   height: auto;
   object-fit: contain;
 }
+.channel-logo.is-ready { opacity: 1; }
 .desktop-nav {
   display: flex;
   justify-content: center;
@@ -58,7 +62,7 @@ button { border: 0; }
 }
 .desktop-nav a,
 .site-footer a {
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   text-decoration: none;
   text-transform: uppercase;
   font-size: clamp(14px, 1.05vw, 18px);
@@ -128,11 +132,11 @@ button { border: 0; }
 }
 .hero-copy h1 {
   margin: 0;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
-  font-size: clamp(100%, 6.25vw, 150px);
-  line-height: .84;
+  font-family: var(--font-display);
+  font-size: clamp(100%, 5.7vw, 136px);
+  line-height: .92;
   text-transform: uppercase;
-  letter-spacing: clamp(-4px, -.25vw, -2px);
+  letter-spacing: clamp(-1.5px, -.09vw, -.5px);
 }
 .hero-copy h1 span { display: block; }
 .hero-copy h1 .accent { color: var(--pink); }
@@ -140,7 +144,7 @@ button { border: 0; }
   display: inline-block;
   margin: 6.5% 0 0;
   padding: .3em .45em;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(20px, 1.7vw, 30px);
   font-weight: 700;
   line-height: 1.28;
@@ -179,12 +183,12 @@ button { border: 0; }
 }
 .fire-ring { animation: fireFlicker 1.3s ease-in-out infinite alternate; }
 @keyframes fireFlicker {
-  from { transform: scale(.995) rotate(-.6deg); filter: saturate(.95) brightness(.98); }
-  to { transform: scale(1.018) rotate(.6deg); filter: saturate(1.15) brightness(1.08); }
+  from { transform: translate(-50%, -50%) scale(.995) rotate(-.6deg); filter: saturate(.95) brightness(.98); }
+  to { transform: translate(-50%, -50%) scale(1.018) rotate(.6deg); filter: saturate(1.15) brightness(1.08); }
 }
 @keyframes glowPulse {
-  from { transform: scale(.97); opacity: .35; }
-  to { transform: scale(1.03); opacity: .58; }
+  from { transform: translate(-50%, -50%) scale(.97); opacity: .35; }
+  to { transform: translate(-50%, -50%) scale(1.03); opacity: .58; }
 }
 
 .orbit-system {
@@ -217,7 +221,7 @@ button { border: 0; }
   border-radius: clamp(12px, 1.8cqw, 18px);
   color: rgba(56, 45, 35, .82);
   text-align: center;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   background: linear-gradient(135deg, rgba(255,255,255,.3), rgba(232,214,196,.46)), linear-gradient(180deg, #ffdbed 0%, #ffe3a8 44%, #f4cc8d 100%);
   box-shadow: 0 18px 24px rgba(55, 24, 10, .24);
   will-change: transform;
@@ -249,8 +253,8 @@ button { border: 0; }
   right: 23%;
   bottom: 5%;
   z-index: 21;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
-  font-size: clamp(28px, 3.3cqw, 40px);
+  font-family: var(--font-hand);
+  font-size: clamp(26px, 3cqw, 36px);
   transform: rotate(-8deg);
 }
 .hero-visual .hero-sticker--new {
@@ -451,17 +455,6 @@ button { border: 0; }
 }
 
 .header-actions { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
-.icon-button {
-  display: grid;
-  place-items: center;
-  width: clamp(42px, 3.4vw, 50px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  color: var(--ink);
-  background: transparent;
-  font-size: 26px;
-  cursor: pointer;
-}
 .primary-button,
 .social-panel > a {
   display: inline-flex;
@@ -472,7 +465,7 @@ button { border: 0; }
   border-radius: 999px;
   padding: 14px 26px;
   color: white;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   font-size: 40px;
   text-decoration: none;
   background: var(--pink);
@@ -490,70 +483,11 @@ button { border: 0; }
 .connect-section h2 {
   margin: 0 0 18px;
   text-align: center;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   font-size: 34px;
   text-transform: uppercase;
 }
-.connect-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: clamp(12px, 1.4vw, 24px);
-}
-.social-panel {
-  display: flex;
-  flex-direction: column;
-  min-height: 330px;
-  padding: 16px;
-  border: 2px solid rgba(28, 20, 15, .12);
-  border-radius: 22px;
-  background: var(--panel);
-  box-shadow: var(--shadow);
-}
-.social-panel header { display: flex; align-items: center; gap: 10px; min-height: 60px; }
-.social-panel header strong,
-.social-panel header small { display: block; text-transform: uppercase; }
-.social-panel header strong { font-family: "Comic Sans MS", "Arial Black", sans-serif; font-size: 22px; }
-.social-panel header small { color: var(--pink); font-weight: 700; }
 .panel-icon { font-size: 38px; }
-.social-panel--instagram { background: linear-gradient(180deg, rgba(235, 55, 113, .9), rgba(255, 224, 171, .84)); }
-.social-panel--x { color: white; background: #050505; }
-.social-panel--price { background: rgba(255, 248, 235, .9); }
-.social-panel--schedule { background: rgba(229, 204, 238, .88); }
-.instagram-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin: 8px 0; }
-.instagram-grid div {
-  min-height: 108px;
-  border: 3px solid white;
-  border-radius: 8px;
-  background: #ead7c2;
-}
-.feed-item {
-  min-height: 74px;
-  margin: 8px 0;
-  padding: 17px 12px;
-  border-radius: 14px;
-  color: #111;
-  background: #fffaf0;
-}
-.price-list,
-.schedule-list { list-style: none; margin: 8px 0 18px; padding: 0; }
-.price-list li,
-.schedule-list li {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  min-height: 50px;
-  padding: 14px 4px;
-  border-bottom: 1px solid rgba(20,15,10,.2);
-}
-.schedule-list li { justify-content: flex-start; text-transform: uppercase; }
-.schedule-list li b { width: 50px; }
-.social-panel > a {
-  margin-top: auto;
-  padding: 8px 18px;
-  color: var(--pink);
-  font-size: 17px;
-  background: white;
-}
 
 .benefit-section {
   display: grid;
@@ -565,7 +499,7 @@ button { border: 0; }
 }
 .benefit-title {
   padding: 14px 22px;
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   font-size: 36px;
   line-height: 1;
   text-transform: uppercase;
@@ -576,7 +510,7 @@ button { border: 0; }
 .benefit span { display: block; font-size: 52px; }
 .benefit strong,
 .benefit small { display: block; }
-.benefit strong { font-family: "Comic Sans MS", "Arial Black", sans-serif; font-size: 18px; }
+.benefit strong { font-family: var(--font-display); font-size: 18px; }
 
 .bottom-section {
   display: grid;
@@ -585,24 +519,6 @@ button { border: 0; }
   align-items: center;
   padding: 25px clamp(18px, 3.5vw, 68px) 12px;
 }
-.newsletter-panel { position: relative; display: grid; min-height: 190px; align-items: center; }
-.newsletter-panel > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; opacity: .62; }
-.newsletter-panel > div { position: relative; padding: 18px 26px; }
-.newsletter-panel h2,
-.follow-panel h2 { margin: 0; font-family: "Comic Sans MS", "Arial Black", sans-serif; text-transform: uppercase; }
-.newsletter-panel p { max-width: 400px; }
-.newsletter-form {
-  display: flex;
-  max-width: 400px;
-  overflow: hidden;
-  border: 2px solid rgba(20,15,10,.2);
-  border-radius: 999px;
-  background: white;
-}
-.newsletter-form input { flex: 1; min-width: 0; padding: 12px 18px; border: 0; outline: 0; }
-.newsletter-form button { width: 46px; border-radius: 50%; color: white; background: #111; cursor: pointer; }
-.follow-panel { position: relative; min-height: 180px; padding: 18px; border: 3px solid #a786bb; background: rgba(255, 247, 229, .55); }
-.follow-panel img { position: absolute; right: -5px; bottom: -18px; width: 145px; height: 145px; object-fit: contain; }
 .love-note { width: 100%; max-height: 210px; object-fit: contain; transform: rotate(-4deg); }
 
 .site-footer {
@@ -618,11 +534,8 @@ button { border: 0; }
 .site-footer > img { width: 125px; height: 55px; object-fit: contain; filter: invert(1) grayscale(1) brightness(2); }
 .site-footer nav { display: flex; justify-content: center; gap: 18px; }
 .site-footer a { font-family: inherit; font-size: 12px; }
-.payment-list { display: flex; gap: 5px; }
-.payment-list span { padding: 5px 7px; border-radius: 3px; color: #111; font-size: 11px; font-weight: 700; background: white; }
 
 @media (max-width: 980px) {
-  .connect-grid { grid-template-columns: repeat(2, 1fr); }
   .benefit-section { grid-template-columns: repeat(2, 1fr); }
   .benefit-title { grid-column: 1 / -1; text-align: center; }
   .bottom-section { grid-template-columns: 1fr 1fr; }
@@ -631,8 +544,6 @@ button { border: 0; }
   .site-footer nav { display: none; }
 }
 @media (max-width: 680px) {
-  .icon-button { display: none; }
-  .connect-grid { grid-template-columns: 1fr; }
   .benefit-section { grid-template-columns: 1fr 1fr; padding-inline: 18px; }
   .bottom-section { grid-template-columns: 1fr; padding-inline: 18px; }
   .love-note { grid-column: auto; }
@@ -1633,7 +1544,7 @@ button { border: 0; }
     min-height: auto;
     padding: 8px 14px 26px;
     overflow: hidden;
-    background: url("assets/backgrounds/paper-background.jpg") center top / cover no-repeat;
+    background: url("assets/backgrounds/paper-background.webp") center top / cover no-repeat;
   }
 
   .hero-decoration-layer {
@@ -1651,7 +1562,7 @@ button { border: 0; }
   .mobile-decor,
   .mobile-decor-arrow {
     position: absolute;
-    font-family: "Arial Black", sans-serif;
+    font-family: var(--font-display);
     line-height: 1;
   }
 
@@ -1686,14 +1597,6 @@ button { border: 0; }
     font-size: 25px;
     font-weight: 900;
     transform: rotate(9deg);
-  }
-
-  .mobile-decor-arrow {
-    top: 26%;
-    right: 2%;
-    color: #151515;
-    font-size: 44px;
-    transform: rotate(10deg);
   }
 
   .hero-copy {
@@ -1802,7 +1705,7 @@ button { border: 0; }
     gap: 12px;
     min-height: 52px;
     border-radius: 999px;
-    font-family: "Arial Black", "Trebuchet MS", sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(15px, 4.4vw, 18px);
     font-weight: 800;
     text-decoration: none;
@@ -1911,18 +1814,6 @@ button { border: 0; }
     bottom: 11%;
   }
 }
-
-
-/* 2026-08-05: Google Map store section and Instagram profile link */
-.store-location-section {
-  display: grid;
-  grid-template-columns: minmax(260px, .75fr) minmax(420px, 1.25fr);
-  gap: clamp(24px, 4vw, 64px);
-  align-items: center;
-  padding: clamp(42px, 6vw, 88px) clamp(20px, 5vw, 84px);
-  background: rgba(255, 247, 236, .92);
-}
-.store-location-copy { max-width: 560px; }
 .section-kicker {
   margin: 0 0 8px;
   font-size: 13px;
@@ -1931,38 +1822,10 @@ button { border: 0; }
   text-transform: uppercase;
   color: var(--pink);
 }
-.store-location-copy h2 {
-  margin: 0;
-  font-size: clamp(34px, 4vw, 64px);
-  line-height: .98;
-  text-transform: uppercase;
-}
 .store-location-copy p:not(.section-kicker) {
   margin: 18px 0 24px;
   font-size: clamp(16px, 1.4vw, 21px);
   line-height: 1.55;
-}
-.store-map-link,
-.instagram-profile-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 48px;
-  padding: 0 22px;
-  border-radius: 999px;
-  color: white;
-  font-weight: 800;
-  text-decoration: none;
-  background: var(--pink);
-}
-.store-map-frame {
-  position: relative;
-  min-height: 420px;
-  overflow: hidden;
-  border: 5px solid #ffd52a;
-  border-radius: 26px;
-  background: #eee;
-  box-shadow: 0 18px 34px rgba(73, 50, 30, .2);
 }
 .store-map-frame iframe,
 .store-map-fallback {
@@ -1976,187 +1839,25 @@ button { border: 0; }
   object-fit: cover;
   object-position: center;
 }
-.store-map-frame iframe {
-  z-index: 2;
-  background: transparent;
-}
-.instagram-profile-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.instagram-profile-card p {
-  margin: 20px 0 26px;
-  line-height: 1.5;
-}
-.instagram-profile-link {
-  align-self: flex-start;
-  color: #111;
-  background: white;
-}
 
 @media (max-width: 680px) {
-  .mobile-decor-arrow { display: none !important; }
-
-  .store-location-section {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 34px 14px 42px;
-  }
-
-  .store-location-copy h2 {
-    font-size: clamp(31px, 9vw, 42px);
-  }
 
   .store-location-copy p:not(.section-kicker) {
     margin: 12px 0 18px;
     font-size: 15px;
   }
 
-  .store-map-link {
-    width: 100%;
-  }
-
-  .store-map-frame {
-    min-height: 520px;
-    border-width: 4px;
-    border-radius: 22px;
-  }
-
   .connect-section {
     padding-top: 38px;
-  }
-
-  .connect-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .instagram-profile-card {
-    min-height: 220px;
   }
 }
 .store-map-frame.is-loaded .store-map-fallback { opacity: 0; pointer-events: none; }
 
 
-/* 2026-08-05: Official X profile timeline for @kaitorinagano */
-.x-timeline-panel {
-  display: flex;
-  flex-direction: column;
-  min-height: 720px;
-}
-.x-timeline-frame {
-  width: 100%;
-  min-height: 560px;
-  margin: 18px 0 16px;
-  overflow: hidden;
-  border: 2px solid rgba(17, 17, 17, .16);
-  border-radius: 18px;
-  background: #fff;
-}
-.x-timeline-frame .twitter-timeline {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 560px;
-  padding: 24px;
-  color: #111;
-  text-align: center;
-}
-.x-profile-link {
-  margin-top: auto;
-}
-@media (max-width: 680px) {
-  .x-timeline-panel {
-    min-height: 700px;
-  }
-  .x-timeline-frame {
-    min-height: 540px;
-    margin-top: 16px;
-    border-radius: 16px;
-  }
-  .x-timeline-frame .twitter-timeline {
-    min-height: 540px;
-  }
-}
-
-
-/* Whatnot live stream panel */
-.whatnot-panel {
-  background: rgba(229, 204, 238, .88);
-}
-.whatnot-panel header small {
-  color: #5d3475;
-}
-.whatnot-profile-card {
-  display: block;
-  margin: 10px 0 18px;
-  padding: 0 !important;
-  overflow: hidden;
-  border: 2px solid rgba(22, 22, 22, .85);
-  border-radius: 16px;
-  background: #fff;
-  color: #111 !important;
-  text-decoration: none;
-  transform: none !important;
-}
-.whatnot-profile-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.whatnot-profile-copy {
-  display: grid;
-  gap: 4px;
-  padding: 12px 14px 14px;
-}
-.whatnot-profile-copy b {
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
-  font-size: 18px;
-}
-.whatnot-profile-copy small {
-  color: #4c4c4c;
-  font-size: 13px;
-  line-height: 1.45;
-}
-@media (max-width: 680px) {
-  .whatnot-profile-card { border-radius: 14px; }
-  .whatnot-profile-copy { padding: 10px 12px 12px; }
-}
-
-
-/* 2026-08-05: Replace footer X follow panel with Google Maps store summary */
-.map-summary-panel {
-  min-height: 180px;
-  padding: 22px;
-  border-color: #ffd52a;
-  background: rgba(255, 250, 240, .9);
-}
-.map-summary-panel h2 {
-  max-width: 460px;
-  margin: 0 0 12px;
-  font-size: clamp(24px, 2.4vw, 38px);
-  line-height: 1.05;
-}
-.map-summary-rating {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-.map-summary-rating strong { font-size: 20px; }
-.map-summary-rating span { color: #f4a000; letter-spacing: 1px; }
-.map-summary-rating small { color: #555; }
+/* 2026-08-05: Official X profile timeline for @
 .map-summary-category,
 .map-summary-hours { margin: 4px 0; }
 .map-summary-hours strong { color: #d33; }
-.map-summary-link { margin-top: 16px; }
-@media (max-width: 680px) {
-  .map-summary-panel { padding: 20px 18px 22px; }
-  .map-summary-panel h2 { font-size: 27px; }
-  .map-summary-link { width: 100%; }
-}
-
-
 /* 2026-08-05: Selected English Google Maps reviews */
 .google-review-list {
   display: grid;
@@ -2205,14 +1906,6 @@ button { border: 0; }
   color: #2d2d2d;
   font-size: 14px;
   line-height: 1.55;
-}
-.google-review-link {
-  margin-top: auto;
-  color: #111;
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 @media (max-width: 680px) {
   .google-review-list {
@@ -2268,7 +1961,7 @@ button { border: 0; }
 }
 .feature-panel > header strong,
 .compact-social-card > header strong {
-  font-family: "Comic Sans MS", "Arial Black", sans-serif;
+  font-family: var(--font-display);
   font-size: 22px;
 }
 .feature-panel > header small,
@@ -2276,18 +1969,6 @@ button { border: 0; }
   color: var(--pink);
   font-weight: 700;
 }
-.x-timeline-panel {
-  min-height: 900px;
-  color: white;
-  background: #050505;
-}
-.x-timeline-frame {
-  flex: 1;
-  min-height: 700px;
-  margin: 18px 0 16px;
-  border-color: rgba(255,255,255,.24);
-}
-.x-timeline-frame .twitter-timeline { min-height: 700px; }
 .store-feature-panel {
   min-height: 900px;
   background: rgba(255, 250, 240, .94);
@@ -2338,40 +2019,6 @@ button { border: 0; }
   -webkit-line-clamp: 5;
 }
 .google-review-avatar--evan { background: #075b4f; }
-.compact-link-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(14px, 1.5vw, 22px);
-  margin-top: 24px;
-}
-.compact-social-card {
-  display: flex;
-  min-width: 0;
-  min-height: 150px;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 18px;
-  border: 2px solid rgba(28, 20, 15, .14);
-  border-radius: 20px;
-  box-shadow: var(--shadow);
-}
-.compact-social-card--instagram { background: linear-gradient(135deg, rgba(235,55,113,.88), rgba(255,224,171,.9)); }
-.compact-social-card--price { background: rgba(255,248,235,.94); }
-.compact-social-card--whatnot { background: rgba(229,204,238,.9); }
-.compact-social-card--whatnot header img {
-  width: 64px;
-  height: 64px;
-  flex: 0 0 64px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-.compact-social-card a {
-  align-self: flex-start;
-  color: #111;
-  font-weight: 800;
-  text-underline-offset: 3px;
-}
 .bottom-section--compact {
   grid-template-columns: minmax(0, 1.5fr) minmax(180px, .5fr);
 }
@@ -2380,19 +2027,13 @@ button { border: 0; }
   .feature-pair { grid-template-columns: 1fr; }
   .x-timeline-panel,
   .store-feature-panel { min-height: auto; }
-  .compact-link-grid { grid-template-columns: 1fr 1fr; }
-  .compact-social-card:last-child { grid-column: 1 / -1; }
 }
 @media (max-width: 680px) {
   .connect-section--balanced { padding: 34px 14px 42px; }
   .feature-panel { padding: 14px; border-radius: 18px; }
-  .x-timeline-frame,
-  .x-timeline-frame .twitter-timeline { min-height: 540px; }
   .store-feature-map { height: 300px; flex-basis: 300px; }
   .google-review-list { grid-template-columns: 1fr; }
   .google-review-text { -webkit-line-clamp: 4; }
-  .compact-link-grid { grid-template-columns: 1fr; }
-  .compact-social-card:last-child { grid-column: auto; }
   .bottom-section--compact { grid-template-columns: 1fr; }
 }
 
@@ -2404,24 +2045,12 @@ button { border: 0; }
     max-height: 520px;
     overflow: hidden;
   }
-  .x-timeline-frame {
-    min-height: 350px;
-    height: 350px;
-    flex: 0 0 350px;
-    margin: 12px 0 10px;
-  }
-  .x-timeline-frame .twitter-timeline { min-height: 350px; }
-  .x-timeline-frame iframe {
-    height: 350px !important;
-    min-height: 350px !important;
-  }
   .store-feature-map {
     height: 150px;
     flex-basis: 150px;
     margin: 12px 0 8px;
   }
   .store-feature-summary p { font-size: 13px; line-height: 1.25; }
-  .map-summary-rating { margin-bottom: 3px; }
   .google-review-list {
     gap: 8px;
     margin-top: 8px;
@@ -2448,7 +2077,6 @@ button { border: 0; }
     font-size: 11px;
     line-height: 1.35;
   }
-  .google-review-link { font-size: 10px; }
   .store-feature-link {
     min-height: 34px;
     margin-top: 8px;
@@ -2456,3 +2084,639 @@ button { border: 0; }
     font-size: 12px;
   }
 }
+
+
+/* =====================================================================
+   2026-09-03: 本番化対応
+   - Webフォント（Luckiest Guy / Nunito / Gochi Hand）への移行に伴う調整
+   - 新規セクション（New Arrivals / How to Buy / Shipping / FAQ / Contact）
+   - spin-label とマスコットの重なり解消
+   ===================================================================== */
+
+body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+
+/* Luckiest Guy はベースラインが高くディセンダが短いため、行間を個別に補正 */
+.desktop-nav a,
+.site-footer a { letter-spacing: .04em; }
+.primary-button,
+.mobile-hero-button { letter-spacing: .01em; }
+
+/* --- spin-label: マスコットとの重なりを解消 ------------------------- */
+@media (min-width: 681px) {
+  .spin-label {
+    right: auto;
+    left: 6%;
+    bottom: 9%;
+    max-width: 42%;
+  }
+}
+
+/* --- 共通セクション ------------------------------------------------- */
+.content-section {
+  position: relative;
+  padding: clamp(40px, 5vw, 72px) clamp(18px, 3.5vw, 72px);
+}
+.content-section--tint { background: rgba(255, 250, 240, .55); }
+.section-head { max-width: 62ch; margin: 0 auto clamp(28px, 3vw, 44px); text-align: center; }
+.section-kicker {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--pink);
+}
+.content-section h2,
+.contact-copy h2 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.4vw, 46px);
+  line-height: 1.05;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.section-lede { margin: 0; font-size: 17px; line-height: 1.65; color: rgba(17, 17, 17, .82); }
+
+/* --- New Arrivals: 3チャネル ---------------------------------------- */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(14px, 1.6vw, 24px);
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 22px 20px;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.channel-tag {
+  margin: 0;
+  align-self: flex-start;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--yellow);
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.channel-card h3 {
+  margin: 2px 0 0;
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.channel-card p { margin: 0; font-size: 15px; line-height: 1.6; }
+.channel-card .feature-link { margin-top: auto; }
+
+/* --- How to Buy: 4ステップ ------------------------------------------ */
+.step-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.6vw, 24px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+.step {
+  position: relative;
+  padding: 24px 20px 20px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .72);
+  border: 2px solid rgba(236, 47, 112, .18);
+}
+.step-no {
+  display: inline-block;
+  margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: 1;
+  color: var(--pink);
+}
+.step h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 19px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+.step p { margin: 0; font-size: 15px; line-height: 1.6; }
+
+/* --- 配送・支払い --------------------------------------------------- */
+.shipping-block {
+  max-width: 1240px;
+  margin: clamp(28px, 3vw, 48px) auto 0;
+  padding: clamp(24px, 2.6vw, 36px);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.shipping-heading {
+  margin: 0 0 18px;
+  font-family: var(--font-display);
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.fact-list { margin: 0; display: grid; gap: 0; }
+.fact {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 8px 24px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(64, 35, 18, .14);
+}
+.fact:first-child { border-top: 0; padding-top: 0; }
+.fact dt {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.fact dd { margin: 0; font-size: 15px; line-height: 1.6; }
+.fact dd a { color: var(--pink); }
+
+/* --- FAQ ------------------------------------------------------------ */
+.faq-list { max-width: 860px; margin: 0 auto; display: grid; gap: 10px; }
+.faq-item {
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: 0 6px 16px rgba(64, 35, 18, .1);
+  overflow: hidden;
+}
+.faq-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 52px 16px 20px;
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.3;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  line-height: 1;
+  color: var(--pink);
+  transition: transform .2s ease;
+}
+.faq-item[open] summary::after { content: "\2013"; }
+.faq-item summary:hover { color: var(--pink); }
+.faq-item p { margin: 0; padding: 0 20px 18px; font-size: 15px; line-height: 1.7; }
+
+/* --- 特典アイコン（文字グリフ → SVG） -------------------------------- */
+.benefit-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 8px;
+  color: var(--ink);
+}
+.benefit small { font-size: 12px; letter-spacing: .04em; }
+
+/* --- Contact -------------------------------------------------------- */
+.bottom-section--compact { align-items: center; }
+.contact-panel { position: relative; }
+.contact-brush {
+  position: absolute;
+  left: -4%;
+  top: -10%;
+  width: 46%;
+  max-width: 320px;
+  opacity: .5;
+  transform: rotate(-3deg);
+  pointer-events: none;
+  z-index: 0;
+}
+.contact-copy { position: relative; z-index: 1; max-width: 68ch; }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0 26px; }
+.primary-button--inline { margin-top: 0; font-size: 20px; padding: 11px 22px; }
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 22px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 20px;
+  text-decoration: none;
+  background: transparent;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+.ghost-button:hover { transform: translateY(-3px) rotate(1deg); background: var(--ink); color: var(--paper); }
+.fact-list--contact .fact { grid-template-columns: 150px 1fr; }
+
+/* --- 店舗パネルの営業状態 -------------------------------------------- */
+.store-status {
+  margin: 0 0 2px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: .02em;
+}
+.store-status.is-open { color: #1f7a4d; }
+.store-status.is-closed { color: #b3382a; }
+.map-summary-category { margin: 0; font-size: 13px; color: rgba(17, 17, 17, .68); }
+.review-source { margin: 8px 0 0; font-size: 11.5px; color: rgba(17, 17, 17, .55); }
+
+/* --- フッター -------------------------------------------------------- */
+.footer-note { margin: 0; font-size: 11.5px; opacity: .72; }
+.site-footer a:hover { color: var(--yellow); }
+
+/* --- レスポンシブ ---------------------------------------------------- */
+@media (max-width: 980px) {
+  .channel-grid { grid-template-columns: 1fr 1fr; }
+  .step-list { grid-template-columns: 1fr 1fr; }
+  .site-footer { grid-template-columns: 120px 1fr; row-gap: 10px; }
+  .site-footer nav { display: flex; flex-wrap: wrap; }
+  .footer-note { grid-column: 1 / -1; text-align: center; }
+}
+@media (max-width: 680px) {
+  .channel-grid,
+  .step-list { grid-template-columns: 1fr; }
+  .fact,
+  .fact-list--contact .fact { grid-template-columns: 1fr; gap: 2px; }
+  .fact dt { font-size: 13px; color: var(--pink); }
+  .contact-brush { display: none; }
+  .contact-actions { flex-direction: column; align-items: stretch; }
+  .primary-button--inline,
+  .ghost-button { justify-content: space-between; font-size: 18px; }
+  .site-footer { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .site-footer nav { display: flex; justify-content: center; }
+  .love-note { max-width: 220px; }
+}
+
+/* --- Luckiest Guy は Arial Black より字幅が広いため、詰まりやすい箇所を保護 --- */
+.desktop-nav a { white-space: nowrap; }
+@media (min-width: 981px) and (max-width: 1279px) {
+  .desktop-nav { gap: clamp(10px, 1.4vw, 18px); }
+  .desktop-nav a { font-size: 13px; }
+}
+.primary-button,
+.mobile-hero-button { font-size: clamp(22px, 2.2vw, 34px); }
+.primary-button--inline { font-size: clamp(17px, 1.4vw, 20px); }
+.hero-copy .primary-button { max-width: 100%; }
+.hero-copy h1 span { display: block; overflow-wrap: anywhere; }
+
+
+/* =====================================================================
+   2026-09-03 (2): ヒーロー下端の重なり解消 / X パネルの埋め込み依存を撤廃
+   ===================================================================== */
+
+/* --- ヒーローのコピー枠を上下で固定し、書体差で下にはみ出さないようにする --- */
+@media (min-width: 981px) {
+  .hero-copy {
+    top: 22%;
+    bottom: 2%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero-copy h1 { margin-top: 0; }
+  .hero-copy .primary-button { align-self: flex-start; margin-top: clamp(16px, 1.6vw, 24px); }
+}
+
+/* --- 後続セクションがヒーローに食い込まないよう、下端に余白を確保 --- */
+.connect-section { position: relative; z-index: 1; }
+@media (min-width: 981px) {
+  .connect-section { padding-top: clamp(28px, 3vw, 52px); }
+}
+/* Luckiest Guy は小文字が小型大文字になるため、ボタン類は大文字に揃える */
+.primary-button,
+.ghost-button,
+.mobile-hero-button,
+.feature-link,
+.compact-social-card > a { text-transform: uppercase; }
+.faq-item summary { text-transform: none; }
+
+/* FAQ の設問は可読性優先で本文書体に */
+.faq-item summary {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16.5px;
+  letter-spacing: 0;
+}
+
+/* 超ワイド時は H1 が最大サイズに達するため、コピー枠を少し上に寄せて下端の余白を確保 */
+@media (min-width: 1600px) {
+  .hero-copy { top: 17%; bottom: 7%; }
+}
+
+
+/* =====================================================================
+   2026-09-03 (3): 炎の見切れ解消
+   素材の透明余白をトリミングした上で、カード周回の中心に合わせて配置し直す。
+   幅ではなくコンテナ基準の一定比率で置くため、どの画面幅でも枠内に収まる。
+   ===================================================================== */
+.fire-ring,
+.fire-glow {
+  top: 52%;
+  left: 52%;
+  right: auto;
+  bottom: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+/* ヒーローの高さは画面幅が広がっても固定なので、幅にも上限を持たせて縦の見切れを防ぐ */
+.fire-ring { width: min(75cqw, 690px); }
+.fire-glow { width: min(71cqw, 655px); }
+
+@media (max-width: 980px) {
+  .fire-ring { width: min(76cqw, 600px); }
+  .fire-glow { width: min(72cqw, 570px); }
+}
+@media (max-width: 680px) {
+  .fire-ring { top: 47%; width: 88cqw; }
+  .fire-glow { top: 47%; width: 83cqw; }
+}
+
+/* 炎が下のセクションへ被らないよう、ヒーロー内で重なり順を閉じる */
+.hero-section { isolation: isolate; z-index: 0; }
+
+
+/* =====================================================================
+   2026-09-03 (5): SNS の重複解消
+   - 旧 Connect（X埋め込み + マップ + SNS3枚）と New Arrivals（SNS3枚）で
+     同じ導線が二重にあったため、SNS はチャネル一覧の1箇所に集約した
+   - Connect は「店舗を訪ねる」（マップ + レビュー）専用に変更
+   ===================================================================== */
+
+/* --- 店舗パネル / レビューパネルの2枚組 --- */
+.review-panel { background: var(--panel); border-color: rgba(28, 20, 15, .14); }
+.review-panel .google-review-list { display: grid; gap: 10px; margin-top: 14px; }
+.review-panel-link { margin-top: auto; }
+/* 高さは2枚組のグリッドで揃うので固定せず、地図側を伸縮させて余白を埋める */
+.store-feature-panel,
+.review-panel { min-height: 0; max-height: none; overflow: visible; }
+.store-feature-map { flex: 1 1 240px; min-height: 240px; height: auto; }
+/* レビューは全文表示（旧レイアウトの行数制限を解除） */
+.review-panel .google-review-text {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: none;
+}
+.review-panel .google-review-card { padding: 14px 16px; }
+
+/* --- チャネル一覧（価格表 / Instagram / X / Whatnot） --- */
+.channel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+  max-width: 1320px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+  border: 2px solid rgba(28, 20, 15, .12);
+  border-radius: 22px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.channel-card:hover { transform: translateY(-4px); box-shadow: 0 20px 34px rgba(64, 35, 18, .18); }
+.channel-body { display: flex; flex-direction: column; gap: 9px; padding: 18px 20px 20px; flex: 1; }
+.channel-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+.channel-card p { margin: 0; font-size: 14.5px; line-height: 1.6; }
+.channel-card .feature-link { margin-top: auto; padding-top: 12px; }
+
+
+/* --- Instagram 投稿サムネイル（データがある時のみ表示） --- */
+.ig-feed { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 2px 0 4px; }
+.ig-feed a { display: block; overflow: hidden; border-radius: 8px; aspect-ratio: 1; }
+.ig-feed img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ig-feed a:hover img { transform: scale(1.05); }
+.ig-feed img { transition: transform .2s ease; }
+
+@media (max-width: 1180px) {
+  .channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .channel-grid { grid-template-columns: 1fr; }
+  .channel-card h3 { font-size: 19px; }
+}
+
+/* --- チャネルカードのヘッダー：公式ロゴのみ ------------------------
+   AI生成のイラストは撤去。各社が配布している公式ロゴと、
+   価格表カードは実際の商品写真だけを使う。
+   帯やタグの配色も、ロゴから抽出した各社の色に合わせている。 */
+.channel-media-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(28, 20, 15, .12);
+}
+.channel-logo {
+  opacity: 0;
+  transition: opacity .2s ease, transform .25s ease;
+  width: 42%;
+  max-width: 96px;
+  max-height: 76%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 18px;
+}
+.channel-logo.is-ready { opacity: 1; }
+.channel-card:hover .channel-logo { transform: scale(1.05) rotate(-2deg); }
+.channel-media-wrap > * { min-width: 0; min-height: 0; }
+.channel-shot {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  padding: 8px;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+.channel-card:hover .channel-shot { transform: scale(1.04); }
+
+/* ロゴから抽出した各社の色。地色はロゴが沈まないよう淡く敷く */
+.channel-card--instagram .channel-media-wrap {
+  background: linear-gradient(135deg, #7b19fe 0%, #ee01ba 42%, #fc3360 68%, #ffa207 100%);
+}
+.channel-card--instagram .channel-logo { box-shadow: 0 8px 20px rgba(60, 10, 70, .34); }
+.channel-card--x .channel-media-wrap { background: #000; }
+.channel-card--x .channel-logo { background: #fff; }
+.channel-card--whatnot .channel-media-wrap { background: #282028; }
+.channel-card--price .channel-media-wrap { background: #fff; }
+
+.channel-tag {
+  margin: 0;
+  align-self: flex-start;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: var(--yellow);
+  color: var(--ink);
+}
+.channel-card--instagram .channel-tag {
+  color: #fff;
+  background: linear-gradient(90deg, #7b19fe, #ee01ba 45%, #fc3360 75%, #ffa207);
+}
+.channel-card--x .channel-tag { color: #fff; background: #000; }
+.channel-card--whatnot .channel-tag { color: #f8e010; background: #282028; }
+.channel-card--price .channel-tag { color: #fff; background: var(--pink); }
+
+
+/* =====================================================================
+   2026-09-04: Contact を左右2カラムに
+   左に見出し・本文・DM導線、右に店舗情報カード。
+   従来は左寄せ1カラムで、中央から右に大きな余白が残っていた。
+   ===================================================================== */
+.contact-section {
+  position: relative;
+  padding: clamp(40px, 5vw, 76px) clamp(18px, 3.5vw, 72px) clamp(44px, 5vw, 80px);
+  border-top: 1px solid rgba(80, 45, 20, .12);
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  gap: clamp(24px, 3.4vw, 56px);
+  align-items: start;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.contact-copy { position: relative; }
+.contact-copy .section-kicker { margin-bottom: 6px; }
+.contact-copy h2 { margin: 0 0 14px; }
+.contact-copy .section-lede { max-width: 46ch; }
+.contact-brush {
+  position: absolute;
+  left: -6%;
+  top: 16%;
+  width: 58%;
+  height: auto;
+  max-width: 300px;
+  opacity: .42;
+  transform: rotate(-4deg);
+  pointer-events: none;
+  z-index: -1;
+}
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 0; }
+.contact-copy .love-note {
+  display: block;
+  width: clamp(150px, 42%, 230px);
+  height: auto;            /* HTML の height 属性を打ち消す */
+  max-height: none;
+  margin: clamp(22px, 3vw, 40px) 0 0;
+  transform: rotate(-4deg);
+}
+
+.contact-card {
+  padding: clamp(22px, 2.4vw, 34px);
+  border: 2px solid rgba(28, 20, 15, .14);
+  border-radius: 24px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+}
+.contact-card-title {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(19px, 1.7vw, 24px);
+  text-transform: uppercase;
+}
+.contact-card .fact { grid-template-columns: 132px 1fr; }
+.contact-map-link { margin-top: 20px; width: 100%; }
+
+@media (max-width: 980px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 28px; }
+  .contact-copy .love-note { position: absolute; right: 0; bottom: -8px; width: 150px; height: auto; margin: 0; }
+  .contact-copy { padding-bottom: 0; }
+}
+@media (max-width: 680px) {
+  .contact-brush { display: none; }
+  .contact-actions { flex-direction: column; align-items: stretch; }
+  .contact-copy .love-note { position: static; width: 160px; height: auto; margin: 22px auto 0; }
+  .contact-card .fact { grid-template-columns: 1fr; gap: 2px; }
+  .contact-card { padding: 20px; border-radius: 18px; }
+}
+
+/* 2026-09-04: DM の主導線を Instagram に変更。ボタンの色は公式ロゴ画像から採った値を使用 */
+:root {
+  --ig-1: #7b19fe;
+  --ig-2: #ee01ba;
+  --ig-3: #fc3360;
+  --ig-4: #ffa207;
+  --x-ink: #000;
+}
+
+.primary-button--instagram {
+  border-color: transparent;
+  background: linear-gradient(90deg, var(--ig-1) 0%, var(--ig-2) 45%, var(--ig-3) 72%, var(--ig-4) 100%);
+  box-shadow: 0 7px 0 rgba(123, 25, 254, .14);
+}
+.primary-button--instagram:hover { box-shadow: 0 9px 0 rgba(123, 25, 254, .18); }
+.primary-button--instagram:focus-visible { outline: 3px solid var(--ig-2); outline-offset: 3px; }
+
+.ghost-button--x { border-color: var(--x-ink); color: var(--x-ink); }
+.ghost-button--x:hover { background: var(--x-ink); color: #fff; }
+
+/* Instagram のチャネルカード内リンクも同じ配色に揃える */
+.channel-card .feature-link {
+  display: flex;
+  width: 100%;
+  padding: 9px 16px;
+  border: 2px solid transparent;
+  line-height: 1.25;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+.channel-card--instagram .feature-link {
+  color: #fff;
+  background: linear-gradient(90deg, var(--ig-1) 0%, var(--ig-2) 45%, var(--ig-3) 72%, var(--ig-4) 100%);
+}
+.channel-card--x .feature-link { color: #fff; background: var(--x-ink); }
+.channel-card--whatnot .feature-link { color: #f8e010; background: #282028; }
+.channel-card--price .feature-link { color: #fff; background: var(--pink); }
+
+/* 2026-09-04: X は Nexus のチャネルではなく、だるま買取 長野店のアカウントとして店舗パネルに掲載 */
+.map-summary-x { margin: 6px 0 0; font-size: 13px; line-height: 1.5; color: rgba(17, 17, 17, .68); }
+.map-summary-x a { color: var(--pink); font-weight: 700; }
+.store-feature-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.store-feature-actions .feature-link { flex: 1 1 150px; min-height: 42px; margin-top: 0; }
+.store-x-link { color: #fff; background: var(--x-ink); border: 2px solid var(--x-ink); }
+@media (max-width: 680px) { .store-feature-actions { flex-direction: column; } }
+
+/* 3枚構成に変更したため、カード幅を上限付きで均等に */
+.channel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1180px; margin-inline: auto; }
+@media (max-width: 980px) { .channel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .channel-grid { grid-template-columns: 1fr; } }
+.store-x-link { gap: 9px; }
+.store-x-icon { width: 17px; height: 17px; object-fit: contain; filter: invert(1); }
+
+/* 2026-09-04: 中央カードだけを炎のリングの中心寄りに引き上げる（周囲4枚の軌道は変えない） */
+.orbit-system { --main-lift: 0%; }
+.orbit-card--main { top: calc(var(--center-y) - var(--main-lift)); }
+@media (min-width: 981px) { .orbit-system { --main-lift: 7%; } }
+@media (min-width: 1440px) { .orbit-system { --main-lift: 7.5%; } }
+/* 681–980px は元から中心より上にあるため持ち上げない */
+@media (min-width: 681px) and (max-width: 980px) { .orbit-system { --main-lift: 0%; } }
+@media (max-width: 680px) { .orbit-system { --main-lift: 2%; } }

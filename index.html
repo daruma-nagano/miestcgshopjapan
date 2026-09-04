@@ -3,26 +3,85 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Nexus Trading visual mock site">
-  <title>Nexus Trading Mock</title>
+
+  <title>Nexus Trading | Japanese Trading Cards from Matsumoto, Japan</title>
+  <meta name="description" content="Buy Pokémon and One Piece trading cards direct from Japan. Nexus Trading runs Daruma Kaitori Nagano in Matsumoto — sealed boxes, singles and graded cards, shipped worldwide.">
+  <link rel="canonical" href="https://daruma-nagano.github.io/miestcgshopjapan/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nexus Trading">
+  <meta property="og:title" content="Nexus Trading | Japanese Trading Cards from Matsumoto, Japan">
+  <meta property="og:description" content="Pokémon and One Piece cards direct from Japan. Sealed boxes, singles and graded cards, shipped worldwide.">
+  <meta property="og:url" content="https://daruma-nagano.github.io/miestcgshopjapan/">
+  <meta property="og:image" content="https://daruma-nagano.github.io/miestcgshopjapan/assets/branding/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@kaitorinagano">
+  <meta name="twitter:title" content="Nexus Trading | Japanese Trading Cards from Matsumoto, Japan">
+  <meta name="twitter:description" content="Pokémon and One Piece cards direct from Japan. Sealed boxes, singles and graded cards, shipped worldwide.">
+  <meta name="twitter:image" content="https://daruma-nagano.github.io/miestcgshopjapan/assets/branding/og-card.png">
+
+  <meta name="theme-color" content="#ec2f70">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800&family=Gochi+Hand&display=swap">
   <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "Daruma Kaitori Nagano",
+    "alternateName": "Daruma Purchase Nagano Store",
+    "description": "Japanese trading card shop in Matsumoto, Nagano. Pokémon Card Game, One Piece Card Game and Yu-Gi-Oh! sealed boxes, singles and graded cards.",
+    "url": "https://daruma-nagano.github.io/miestcgshopjapan/",
+    "image": "https://daruma-nagano.github.io/miestcgshopjapan/assets/branding/og-card.png",
+    "telephone": "+81-80-8372-3790",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shunei Bldg. 1F, 2-3-30 Fukashi",
+      "addressLocality": "Matsumoto",
+      "addressRegion": "Nagano",
+      "addressCountry": "JP"
+    },
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Nexus Trading Co., Ltd.",
+      "legalName": "Nexus Trading Co., Ltd."
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Thursday", "Friday"], "opens": "13:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday", "Sunday"], "opens": "12:00", "closes": "19:00" }
+    ],
+    "currenciesAccepted": "JPY",
+    "sameAs": [
+      "https://www.instagram.com/mie_pcg_japancard/",
+      "https://x.com/kaitorinagano",
+      "https://www.whatnot.com/user/kitsune_vault_japan"
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="Nexus Trading home">
-        <img src="assets/branding/nexus-logo.png" alt="Nexus Trading">
+        <img src="assets/branding/nexus-logo.webp" alt="Nexus Trading" width="766" height="296" fetchpriority="high" decoding="async">
       </a>
       <nav id="main-navigation" class="desktop-nav" aria-label="Main navigation">
         <a href="#home">Home</a>
-        <a href="#price-list">Price List</a>
+        <a href="#new-arrivals">New Arrivals</a>
+        <a href="price-list/">Price List</a>
         <a href="#how-to-buy">How to Buy</a>
-        <a href="#shipping">Shipping</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="header-actions">
-        <button class="icon-button" type="button" aria-label="Shopping bag">▢</button>
         <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-navigation">☰</button>
       </div>
     </header>
@@ -30,8 +89,8 @@
     <main>
       <section id="home" class="hero-section">
         <div class="hero-decoration-layer" aria-hidden="true">
-          <img class="hero-decoration hero-decoration--stars" src="assets/decorations/stars-hearts.png" alt="">
-          <img class="hero-decoration hero-decoration--arrows" src="assets/decorations/arrows.png" alt="">
+          <img class="hero-decoration hero-decoration--stars" src="assets/decorations/stars-hearts.webp" alt="" width="1024" height="1337" decoding="async">
+          <img class="hero-decoration hero-decoration--arrows" src="assets/decorations/arrows.webp" alt="" width="1024" height="1536" decoding="async">
         </div>
 
         <div class="mobile-hero-decor" aria-hidden="true">
@@ -49,14 +108,14 @@
             <span>Here!</span>
           </h1>
           <p class="hero-subtitle">Pokémon &amp; One Piece cards<br>from Japan to the world.</p>
-          <a class="primary-button" href="#price-list">Check Price List <span>→</span></a>
+          <a class="primary-button" href="price-list/">See the Price List <span aria-hidden="true">→</span></a>
         </div>
 
         <div class="hero-visual">
-          <img class="hero-sticker hero-sticker--new" src="assets/stickers/new-arrivals.png" alt="New arrivals daily">
-          <img class="hero-sticker hero-sticker--go" src="assets/stickers/lets-go.png" alt="Let's go">
-          <img class="fire-glow" src="assets/effects/fire-glow.png" alt="">
-          <img class="fire-ring" src="assets/effects/fire-ring.png" alt="">
+          <img class="hero-sticker hero-sticker--new" src="assets/stickers/new-arrivals.webp" alt="New arrivals daily" width="460" height="684" fetchpriority="high" decoding="async">
+          <img class="hero-sticker hero-sticker--go" src="assets/stickers/lets-go.webp" alt="" width="320" height="480" decoding="async">
+          <img class="fire-glow" src="assets/effects/fire-glow.webp" alt="" width="1024" height="1439" decoding="async">
+          <img class="fire-ring" src="assets/effects/fire-ring.webp" alt="" width="1024" height="1488" fetchpriority="high" decoding="async">
 
           <p id="orbit-help" class="sr-only">Drag, or use the left and right arrow keys, to rotate the surrounding cards. Press Home or Escape to reset.</p>
           <p id="orbit-status" class="sr-only" aria-live="polite"></p>
@@ -80,73 +139,62 @@
             </button>
           </div>
 
-          <span class="spin-label">Drag to spin</span>
+          <span class="spin-label" aria-hidden="true">Drag to spin</span>
         </div>
 
-        <img class="hero-mascot" src="assets/mascot/nexus-mascot.png" alt="Nexus Trading mascot holding a phone">
-
+        <img class="hero-mascot" src="assets/mascot/nexus-mascot.webp" alt="" width="760" height="1140" decoding="async">
 
         <div class="mobile-hero-actions">
-          <a class="mobile-hero-button mobile-hero-button--primary" href="#price-list">Check Price List <span>→</span></a>
-          <a class="mobile-hero-button mobile-hero-button--secondary" href="#new-arrivals">New Arrivals <span>→</span></a>
+          <a class="mobile-hero-button mobile-hero-button--primary" href="price-list/">See the Price List <span aria-hidden="true">→</span></a>
+          <a class="mobile-hero-button mobile-hero-button--secondary" href="#how-to-buy">How to Buy <span aria-hidden="true">→</span></a>
         </div>
       </section>
 
-      <section class="connect-section connect-section--balanced" aria-labelledby="connect-heading">
-        <h2 id="connect-heading">Connect with Nexus Trading</h2>
+      <section class="connect-section connect-section--balanced" aria-labelledby="visit-heading">
+        <h2 id="visit-heading">Visit the shop in Matsumoto</h2>
 
         <div class="feature-pair">
-          <article class="feature-panel social-panel--x x-timeline-panel">
-            <header>
-              <span class="panel-icon">𝕏</span>
-              <div><strong>Latest on X</strong><small>@kaitorinagano</small></div>
-            </header>
-            <div class="x-timeline-frame">
-              <a
-                class="twitter-timeline"
-                data-height="680"
-                data-theme="light"
-                data-chrome="noheader nofooter noborders transparent"
-                href="https://twitter.com/kaitorinagano?ref_src=twsrc%5Etfw"
-              >
-                Posts by @kaitorinagano
-              </a>
-            </div>
-            <a class="feature-link x-profile-link" href="https://x.com/kaitorinagano" target="_blank" rel="noopener noreferrer" aria-label="Open kaitorinagano on X">View more on X →</a>
-          </article>
-
           <article class="feature-panel store-feature-panel" aria-labelledby="store-feature-heading">
             <header>
-              <span class="panel-icon">⌖</span>
-              <div><strong id="store-feature-heading">Google Maps</strong><small>Daruma Purchase Nagano Store</small></div>
+              <span class="panel-icon" aria-hidden="true">⌖</span>
+              <div><strong id="store-feature-heading">Daruma Kaitori Nagano</strong><small>7 minutes on foot from Matsumoto Station</small></div>
             </header>
 
             <div class="store-feature-map" data-map-frame>
-              <img class="store-map-fallback" src="assets/store/daruma-google-map-reference.png" alt="Map preview for Daruma Purchase Nagano Store">
+              <img class="store-map-fallback" src="assets/store/daruma-google-map-reference.webp" alt="Map preview showing the shop location near Matsumoto Station" width="506" height="728" loading="lazy" decoding="async">
               <iframe
-                title="Google Map for Daruma Purchase Nagano Store"
-                src="https://www.google.com/maps?q=Daruma%20Purchase%20Nagano%20Store&amp;output=embed"
+                title="Google Map for Daruma Kaitori Nagano"
+                src="https://www.google.com/maps?q=2-3-30%20Fukashi%2C%20Matsumoto%2C%20Nagano%2C%20Japan&amp;output=embed"
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
                 allowfullscreen></iframe>
             </div>
 
             <div class="store-feature-summary">
-              <div class="map-summary-rating" aria-label="Google Maps rating 5.0 out of 5 from 30 reviews">
-                <strong>5.0</strong><span aria-hidden="true">★★★★★</span><small>(30)</small>
-              </div>
-              <p class="map-summary-category">Trading card store</p>
-              <p class="map-summary-hours"><strong>Closed</strong> · Opens 1:00 PM (Mon)</p>
+              <p class="store-status" data-opening-status aria-live="polite">Weekdays 13:00–19:00 · Sat, Sun &amp; holidays 12:00–19:00</p>
+              <p class="map-summary-category">Trading card shop · Closed Tuesdays and Wednesdays</p>
+              <p class="map-summary-x">The shop posts counter news and live schedules on X as <a href="https://x.com/kaitorinagano" target="_blank" rel="noopener noreferrer">@kaitorinagano</a> (mostly in Japanese).</p>
             </div>
 
-            <div class="google-review-list" aria-label="Selected English Google Maps reviews">
+            <div class="store-feature-actions">
+              <a class="feature-link store-feature-link" href="https://www.google.com/maps/search/?api=1&amp;query=2-3-30+Fukashi,+Matsumoto,+Nagano,+Japan" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
+              <a class="feature-link store-x-link" href="https://x.com/kaitorinagano" target="_blank" rel="noopener noreferrer"><img class="store-x-icon" src="assets/brands/x.webp" alt="" width="256" height="256" loading="lazy" decoding="async">The shop on X <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="feature-panel review-panel" aria-labelledby="review-heading">
+            <header>
+              <span class="panel-icon" aria-hidden="true">★</span>
+              <div><strong id="review-heading">What visitors say</strong><small>Reviews on Google Maps</small></div>
+            </header>
+
+            <div class="google-review-list">
               <article class="google-review-card">
                 <header class="google-review-header">
                   <span class="google-review-avatar" aria-hidden="true">F</span>
                   <div><h3>Felix</h3><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div></div>
                 </header>
                 <p class="google-review-text">Amazing experience, the place was super lovely and the staff spoke great english so it was easy to communicate! Only place in Japan I have found with boxes of Pokemon cards so am I very happy!</p>
-                <a class="google-review-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
               </article>
 
               <article class="google-review-card">
@@ -155,76 +203,245 @@
                   <div><h3>Evan Adidas</h3><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★</div></div>
                 </header>
                 <p class="google-review-text">Amazing service, and was very patient with me. As I took 2 days to decide whether or not I would buy anything. Great English and fair prices. Would definitely come back if I found myself back in Matsumoto! All while having a very plentiful stock.</p>
-                <a class="google-review-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">View on Google Maps →</a>
               </article>
+              <p class="review-source">Posted on Google Maps by visitors to the shop.</p>
             </div>
 
-            <a class="feature-link store-feature-link" href="https://www.google.com/maps/search/?api=1&amp;query=Daruma%20Purchase%20Nagano%20Store" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
-          </article>
-        </div>
-
-        <div class="compact-link-grid">
-          <article class="compact-social-card compact-social-card--instagram">
-            <header><span class="panel-icon">◎</span><div><strong>Instagram</strong><small>@mie_pcg_japancard</small></div></header>
-            <a href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">Open Instagram →</a>
-          </article>
-
-          <article id="price-list" class="compact-social-card compact-social-card--price">
-            <header><span class="panel-icon">◇</span><div><strong>Price List</strong><small>Latest buying prices</small></div></header>
-            <a href="#">View price list →</a>
-          </article>
-
-          <article class="compact-social-card compact-social-card--whatnot">
-            <header>
-              <img src="assets/whatnot/kitsune-vault-japan-profile.png" alt="Whatnot profile for kitsune_vault_japan">
-              <div><strong>Live Stream</strong><small>kitsune_vault_japan</small></div>
-            </header>
-            <a href="https://www.whatnot.com/user/kitsune_vault_japan" target="_blank" rel="noopener noreferrer">Watch on Whatnot →</a>
+            <a class="feature-link review-panel-link" href="https://www.google.com/maps/search/?api=1&amp;query=2-3-30+Fukashi,+Matsumoto,+Nagano,+Japan" target="_blank" rel="noopener noreferrer">Read all reviews →</a>
           </article>
         </div>
       </section>
 
-      <section id="shipping" class="benefit-section">
+      <section id="new-arrivals" class="content-section" aria-labelledby="new-arrivals-heading">
+        <div class="section-head">
+          <p class="section-kicker">New Arrivals</p>
+          <h2 id="new-arrivals-heading">Stock changes daily</h2>
+          <p class="section-lede">We do not run an online catalogue, because what is on the shelf today is often gone tomorrow. Prices for sealed product are on the price list; everything else is posted as it happens — pick the channel you already use.</p>
+        </div>
+
+        <div class="channel-grid">
+          <article id="price-list" class="channel-card channel-card--price">
+            <div class="channel-media-wrap">
+              <img class="channel-shot" src="price-list/assets/price-images/pok-mon-black-bolt.webp" alt="Sealed Pokémon Card Game box" width="360" height="270" loading="lazy" decoding="async">
+            </div>
+            <div class="channel-body">
+              <p class="channel-tag">Price list</p>
+              <h3>Cases, boxes and bulk</h3>
+              <p>143 sealed products with current prices in yen, filterable by set and product type. Updated as prices move.</p>
+              <a class="feature-link" href="price-list/">See the price list →</a>
+            </div>
+          </article>
+
+          <article class="channel-card channel-card--instagram">
+            <div class="channel-media-wrap">
+              <img class="channel-logo" alt="Instagram" width="256" height="256" decoding="async" data-brand-logo="instagram">
+            </div>
+            <div class="channel-body">
+              <p class="channel-tag">Instagram</p>
+              <h3>Photos of what's in</h3>
+              <p>Singles, graded cards and shelf shots as they land. Reply or DM to ask about anything you see.</p>
+              <div class="ig-feed" data-instagram-feed hidden></div>
+              <a class="feature-link" href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">Follow @mie_pcg_japancard →</a>
+            </div>
+          </article>
+
+          <article class="channel-card channel-card--whatnot">
+            <div class="channel-media-wrap">
+              <img class="channel-logo" alt="Whatnot" width="256" height="256" decoding="async" data-brand-logo="whatnot">
+            </div>
+            <div class="channel-body">
+              <p class="channel-tag">Whatnot</p>
+              <h3>Live breaks and sales</h3>
+              <p>Live streams from Japan. Follow the account to be notified when a show goes live.</p>
+              <a class="feature-link" href="https://www.whatnot.com/user/kitsune_vault_japan" target="_blank" rel="noopener noreferrer">Follow kitsune_vault_japan →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-to-buy" class="content-section content-section--tint" aria-labelledby="how-to-buy-heading">
+        <div class="section-head">
+          <p class="section-kicker">How to Buy</p>
+          <h2 id="how-to-buy-heading">Four steps, start to finish</h2>
+          <p class="section-lede">Orders from outside Japan are handled by message, one at a time, so we can confirm stock and quote shipping before you pay.</p>
+        </div>
+
+        <ol class="step-list">
+          <li class="step">
+            <span class="step-no" aria-hidden="true">01</span>
+            <h3>Find something you want</h3>
+            <p>Spot it in an Instagram post, on a Whatnot live, or just ask us what we have from a set you are chasing.</p>
+          </li>
+          <li class="step">
+            <span class="step-no" aria-hidden="true">02</span>
+            <h3>Message us</h3>
+            <p>Send a DM on Instagram with the item and your country. Messages are answered in English.</p>
+          </li>
+          <li class="step">
+            <span class="step-no" aria-hidden="true">03</span>
+            <h3>Get a quote</h3>
+            <p>We confirm the item is still in stock and reply with the total — item price plus shipping to your address — and the payment methods available for your order.</p>
+          </li>
+          <li class="step">
+            <span class="step-no" aria-hidden="true">04</span>
+            <h3>Pay, then we ship</h3>
+            <p>Once payment clears, your order is packed and sent with tracking, and we send you the tracking number.</p>
+          </li>
+        </ol>
+
+        <div id="shipping" class="shipping-block">
+          <h3 class="shipping-heading">Shipping &amp; payment</h3>
+          <dl class="fact-list">
+            <div class="fact">
+              <dt>Where we ship</dt>
+              <dd>Worldwide, from Matsumoto, Japan.</dd>
+            </div>
+            <div class="fact">
+              <dt>Shipping cost</dt>
+              <dd>Quoted per order — it depends on the destination, the weight and the method you choose. Ask us before you order and we will confirm it in writing.</dd>
+            </div>
+            <div class="fact">
+              <dt>Delivery time</dt>
+              <dd>Varies by destination and shipping method. We confirm the expected timeframe together with the quote.</dd>
+            </div>
+            <div class="fact">
+              <dt>Payment methods</dt>
+              <dd>Confirmed at the time of quoting. Contact us and we will tell you what is available for your order and country.</dd>
+            </div>
+            <div class="fact">
+              <dt>Customs and duties</dt>
+              <dd>Import duties and taxes are set by your own country and are the buyer's responsibility.</dd>
+            </div>
+          </dl>
+          <a class="primary-button primary-button--inline" href="#contact">Ask about shipping <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section id="faq" class="content-section" aria-labelledby="faq-heading">
+        <div class="section-head">
+          <p class="section-kicker">FAQ</p>
+          <h2 id="faq-heading">Questions we get a lot</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Do you ship outside Japan?</summary>
+            <p>Yes. We ship worldwide from Matsumoto. Rates and delivery times depend on where you are, so message us with your country and we will quote it before you commit.</p>
+          </details>
+          <details class="faq-item">
+            <summary>How much is shipping, and how long does it take?</summary>
+            <p>Both are quoted per order rather than published as a fixed table, because they change with destination, weight and method. Contact us with your address and what you want, and we will confirm the cost and the expected timeframe.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What payment methods can I use?</summary>
+            <p>Available methods depend on your country and the size of the order. We confirm them when we send your quote — please ask before ordering.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Are the cards genuine?</summary>
+            <p>Yes. Everything we sell is Japanese stock, sourced and checked in our own shop in Matsumoto. We also buy cards over the counter, which is where most of our stock comes from.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I reserve something I saw on your SNS?</summary>
+            <p>Yes — send a DM as soon as you see it. Stock moves quickly and posts are not automatically updated when an item sells.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you have sealed boxes?</summary>
+            <p>Sealed Pokémon Card Game and One Piece Card Game products are a large part of what we carry, subject to availability. Ask about a specific set and we will tell you what is on the shelf.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you sell graded cards?</summary>
+            <p>Yes. PSA and other graded cards come through the shop regularly. Tell us what you are looking for and we will let you know when something matches.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I visit the shop in person?</summary>
+            <p>Please do. We are about a 7-minute walk from Matsumoto Station, open weekdays 13:00–19:00 and 12:00–19:00 on Saturdays, Sundays and public holidays. Closed Tuesdays and Wednesdays.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you buy cards as well as sell them?</summary>
+            <p>Yes — buying is a large part of what we do, and it is where most of our stock comes from. Current prices for sealed product are on our <a href="price-list/">price list</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if something arrives damaged?</summary>
+            <p>Contact us as soon as the parcel arrives, with photos of the packaging and the item, and we will work out the next step with you directly.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="benefit-section" aria-label="Why shop with us">
         <div class="benefit-title">Why shop<br>with us?</div>
-        <div class="benefit"><span>✓</span><strong>100% Authentic</strong><small>Japan sourced</small></div>
-        <div class="benefit"><span>✈</span><strong>Worldwide</strong><small>Shipping</small></div>
-        <div class="benefit"><span>▣</span><strong>Secure</strong><small>Payment</small></div>
-        <div class="benefit"><span>□</span><strong>Carefully</strong><small>Packed</small></div>
+        <div class="benefit">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5 4.5 6v6c0 4.3 3.1 8.1 7.5 9.5 4.4-1.4 7.5-5.2 7.5-9.5V6z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg>
+          <strong>100% Authentic</strong><small>Japan sourced</small>
+        </div>
+        <div class="benefit">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.2"></circle><path d="M2.8 12h18.4"></path><path d="M12 2.8c2.6 2.9 2.6 15.5 0 18.4M12 2.8c-2.6 2.9-2.6 15.5 0 18.4"></path></svg>
+          <strong>Worldwide</strong><small>Shipping</small>
+        </div>
+        <div class="benefit">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10.2" width="16" height="10.6" rx="2.2"></rect><path d="M8 10.2V7.4a4 4 0 0 1 8 0v2.8"></path><path d="M12 14.4v2.2"></path></svg>
+          <strong>Secure</strong><small>Payment</small>
+        </div>
+        <div class="benefit">
+          <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 8.4 12 3.6l8.8 4.8v7.2L12 20.4l-8.8-4.8z"></path><path d="M3.2 8.4 12 13.2l8.8-4.8M12 13.2v7.2"></path></svg>
+          <strong>Carefully</strong><small>Packed</small>
+        </div>
       </section>
 
-      <section id="contact" class="bottom-section bottom-section--compact">
-        <div class="newsletter-panel">
-          <img src="assets/decorations/pink-brush.png" alt="">
-          <div>
-            <h2>Want more card happiness?</h2>
-            <p>Join our newsletter for new arrivals and exclusive offers.</p>
-            <form class="newsletter-form">
-              <label class="sr-only" for="email">Email address</label>
-              <input id="email" type="email" placeholder="Your email">
-              <button type="submit" aria-label="Subscribe">→</button>
-            </form>
+      <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+        <div class="contact-grid">
+          <div class="contact-copy">
+            <img class="contact-brush" src="assets/decorations/pink-brush.webp" alt="" width="509" height="708" loading="lazy" decoding="async">
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-heading">Message us — we reply in English</h2>
+            <p class="section-lede">The fastest way to reach us is a direct message on Instagram. Tell us what you are after and which country you are in, and we will come back with stock, price and shipping.</p>
+            <div class="contact-actions">
+              <a class="primary-button primary-button--inline primary-button--instagram" href="https://www.instagram.com/mie_pcg_japancard/" target="_blank" rel="noopener noreferrer">DM on Instagram <span aria-hidden="true">→</span></a>
+              <a class="ghost-button" href="#how-to-buy">How to Buy <span aria-hidden="true">→</span></a>
+            </div>
+            <img class="love-note" src="assets/stickers/love-cards-note.webp" alt="We love cards, and you" width="700" height="1018" loading="lazy" decoding="async">
+          </div>
+
+          <div class="contact-card">
+            <h3 class="contact-card-title">Shop details</h3>
+            <dl class="fact-list fact-list--contact">
+              <div class="fact">
+                <dt>Shop</dt>
+                <dd>Daruma Kaitori Nagano<br>Shunei Bldg. 1F, 2-3-30 Fukashi, Matsumoto, Nagano 390-0815, Japan</dd>
+              </div>
+              <div class="fact">
+                <dt>Phone</dt>
+                <dd><a href="tel:+818083723790">+81 80-8372-3790</a> (Japanese)</dd>
+              </div>
+              <div class="fact">
+                <dt>Hours</dt>
+                <dd>Weekdays 13:00–19:00 · Sat, Sun &amp; holidays 12:00–19:00<br>Closed Tuesdays and Wednesdays</dd>
+              </div>
+              <div class="fact">
+                <dt>Operated by</dt>
+                <dd>Nexus Trading Co., Ltd.<br>Secondhand dealer licence No. 481322500084, Nagano Prefectural Public Safety Commission</dd>
+              </div>
+            </dl>
+            <a class="feature-link contact-map-link" href="https://www.google.com/maps/search/?api=1&amp;query=2-3-30+Fukashi,+Matsumoto,+Nagano,+Japan" target="_blank" rel="noopener noreferrer">Open in Google Maps →</a>
           </div>
         </div>
-        <img class="love-note" src="assets/stickers/love-cards-note.png" alt="We love cards, and you">
       </section>
+
     </main>
 
     <footer class="site-footer">
-      <img src="assets/branding/nexus-logo.png" alt="Nexus Trading">
+      <img src="assets/branding/nexus-logo.webp" alt="Nexus Trading" width="766" height="296" loading="lazy" decoding="async">
       <nav aria-label="Footer navigation">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Shipping Policy</a>
-        <a href="#">Returns</a>
+        <a href="#how-to-buy">How to Buy</a>
+        <a href="#shipping">Shipping</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="payment-list" aria-label="Accepted payment methods">
-        <span>VISA</span><span>MC</span><span>PayPal</span><span>Apple Pay</span>
-      </div>
+      <p class="footer-note">Nexus Trading Co., Ltd. — Matsumoto, Nagano, Japan</p>
     </footer>
   </div>
 
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script src="assets/data/instagram-posts.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
