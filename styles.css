@@ -3120,3 +3120,19 @@ body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
   .reward-mascot { animation: none; }
   .confetto { display: none; }
 }
+
+/* 2026-10-28: 回転カードに実カードの写真を表示する（中央1枚＋周囲4枚）
+   中央カードの「TAP ME」はカード幅からはみ出すため、カード側で overflow: hidden にせず、
+   写真の角を枠の内側の丸みに合わせて切る。 */
+.orbit-card-img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(clamp(12px, 1.8cqw, 18px) - clamp(4px, .55cqw, 6px));
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
