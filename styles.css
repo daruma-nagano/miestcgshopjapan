@@ -3136,3 +3136,9 @@ body { font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
   user-select: none;
   -webkit-user-drag: none;
 }
+
+/* 2026-10-28: 680px以下で店舗パネルの「Google Maps」「X」ボタンが高さ150pxに伸びていた。
+   縦並びにしたとき flex: 1 1 150px の 150px が高さとして効いていたため、高さは中身なりにする。 */
+@media (max-width: 680px) {
+  .store-feature-actions .feature-link { flex: 0 0 auto; }
+}

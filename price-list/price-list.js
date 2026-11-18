@@ -20,6 +20,20 @@
   const lowest = g => Math.min(...g.variants.map(v => isNum(v.price) ? v.price : Infinity));
   const highest = g => Math.max(...g.variants.map(v => isNum(v.price) ? v.price : -1));
   const latest = g => g.variants.map(v => String(v.updateDate || '')).sort().pop() || '';
+  // 価格データの中で一番新しい更新日を「Latest update: 17 November 2026」の形で返す。
+  // 日付が1件も無ければ空文字（HTMLに書いた固定文言をそのまま残す）。
+  function latestUpdateLabel(groups){
+    const newest = groups.map(latest).filter(d => /^\d{4}-\d{2}-\d{2}$/.test(d)).sort().pop();
+    if(!newest) return '';
+    const [y, m, d] = newest.split('-').map(Number);
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    return `Latest update: ${d} ${months[m - 1]} ${y}`;
+  }
+  const updatedEl = root.querySelector('[data-pl-updated]');
+  if(updatedEl){
+    const label = latestUpdateLabel(data);
+    if(label) updatedEl.textContent = label;
+  }
   const released = g => String(g.releaseDate || '');
   const MONTH_NAMES = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   // 発売日は 'YYYY-MM-DD'、公表が月までの商品は 'YYYY-MM'。
